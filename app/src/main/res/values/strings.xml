@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Tasky</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="back">Back</string>
+    <string name="time_end">Time End:</string>
+    <string name="time_start">Time Start:</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="insert_phys_points_here_1_3">Insert Phys. Points here (1-3)</string>
+    <string name="insert_ment_points_here_1_3">Insert Ment. Points here (1-3)</string>
+    <string name="insert_place_here">Insert place here</string>
+    <string name="place">Place:</string>
+    <string name="insert_name_here">Insert name here</string>
+    <string name="name">Name:</string>
+    <string name="press_to_select_end_time">Press to select end time</string>
+    <string name="end_time">End Time:</string>
+    <string name="press_to_select_start_time">Press to select start time</string>
+    <string name="start_time">Start Time:</string>
+    <string name="press_to_select_date">Press to select date</string>
+    <string name="date">Date:</string>
+    <string name="ok">OK</string>
+    <string name="mental_points">Mental Points:</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="physical_points">Physical Points:</string>
+    <string name="start_date">Start Date</string>
+    <string name="hard_deadline">Hard Deadline</string>
+    <string name="insert_hard_dl_here_in_days">Insert Hard DL here (in days)</string>
+    <string name="press_to_select_start_date">Press to select start date</string>
+
+</resources>

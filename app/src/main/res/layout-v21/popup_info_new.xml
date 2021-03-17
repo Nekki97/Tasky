@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_back"
+    android:orientation="vertical"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/name"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/task_name"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/start_date"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/task_start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/task_name"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/harddl"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/start_date"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/hard_deadline"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/task_harddl"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/start_date"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/harddl"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/back" />
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/harddl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/edit" />
+    <Button
+        android:id="@+id/del_button"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/harddl"
+        android:layout_marginTop="10dp"
+        android:text="@string/delete"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp" />
+    <ProgressBar
+        android:id="@+id/loadingPanelDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminate="true"
+        android:visibility="gone" />
+</RelativeLayout>

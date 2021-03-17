@@ -1,0 +1,3121 @@
+
+    public void onBindViewHolder(ViewHolder holder, int position) {
+            Object task = this.mTasks.get(position);
+            TextView textView = holder.nameTextView;
+            switch (this.typeid) {
+                case 1:
+                    textView.setText(((TaskClass) task).getName());
+                    break;
+            }
+            holder.itemView.setOnLongClickListener(new MyOnLongClickListener(this.typeid, task));
+        }
+
+    public class MyOnLongClickListener implements View.OnLongClickListener {
+        static final /* synthetic */ boolean $assertionsDisabled = false;
+        String mDate;
+        int mID;
+        int mMent;
+        String mName;
+        int mPhys;
+        String mPlace;
+        String mTimeEnd;
+        String mTimeStart;
+
+        static {
+            Class<Task_Adapter> cls = Task_Adapter.class;
+        }
+
+        public MyOnLongClickListener(int typeid, Object task) {
+            switch (typeid) {
+                case 1:
+                    TaskClass task_1 = (TaskClass) task;
+                    this.mID = task_1.getID();
+                    this.mName = task_1.getName();
+                    this.mPlace = task_1.getPlace();
+                    this.mDate = task_1.getDate();
+                    this.mTimeStart = task_1.getTimeStart();
+                    this.mTimeEnd = task_1.getTimeEnd();
+                    this.mMent = task_1.getMenAct();
+                    this.mPhys = task_1.getPhysAct();
+                    return;
+                default:
+                    return;
+            }
+        }
+
+        public boolean onLongClick(View r56) {
+            /*
+                r55 = this;
+                r0 = r55
+                r1 = 0
+                com.example.myapplication.Task_Adapter r2 = com.example.myapplication.Task_Adapter.this
+                int r2 = r2.typeid
+                r3 = 0
+                switch(r2) {
+                    case 1: goto L_0x0042;
+                    case 2: goto L_0x0030;
+                    case 3: goto L_0x001e;
+                    case 4: goto L_0x000c;
+                    case 5: goto L_0x000c;
+                    case 6: goto L_0x000c;
+                    default: goto L_0x000b;
+                }
+            L_0x000b:
+                goto L_0x0054
+            L_0x000c:
+                com.example.myapplication.Task_Adapter r2 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r2 = r2.mContext
+                android.view.LayoutInflater r2 = android.view.LayoutInflater.from(r2)
+                r4 = 2131427424(0x7f0b0060, float:1.8476464E38)
+                android.view.View r1 = r2.inflate(r4, r3)
+                goto L_0x0054
+            L_0x001e:
+                com.example.myapplication.Task_Adapter r2 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r2 = r2.mContext
+                android.view.LayoutInflater r2 = android.view.LayoutInflater.from(r2)
+                r4 = 2131427423(0x7f0b005f, float:1.8476462E38)
+                android.view.View r1 = r2.inflate(r4, r3)
+                goto L_0x0054
+            L_0x0030:
+                com.example.myapplication.Task_Adapter r2 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r2 = r2.mContext
+                android.view.LayoutInflater r2 = android.view.LayoutInflater.from(r2)
+                r4 = 2131427422(0x7f0b005e, float:1.847646E38)
+                android.view.View r1 = r2.inflate(r4, r3)
+                goto L_0x0054
+            L_0x0042:
+                com.example.myapplication.Task_Adapter r2 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r2 = r2.mContext
+                android.view.LayoutInflater r2 = android.view.LayoutInflater.from(r2)
+                r4 = 2131427421(0x7f0b005d, float:1.8476458E38)
+                android.view.View r1 = r2.inflate(r4, r3)
+            L_0x0054:
+                r2 = r1
+                android.widget.PopupWindow r3 = new android.widget.PopupWindow
+                r4 = -1
+                r5 = -2
+                r3.<init>(r2, r4, r5)
+                r4 = 48
+                r5 = 10
+                r6 = r56
+                r3.showAtLocation(r6, r4, r5, r5)
+                r4 = 0
+                r5 = 0
+                r7 = 0
+                r8 = 0
+                r9 = 0
+                r10 = 0
+                r11 = 0
+                r12 = 0
+                r13 = 0
+                r14 = 0
+                r15 = 0
+                r16 = 0
+                r17 = 0
+                r18 = 0
+                r19 = 0
+                r20 = 0
+                r21 = 0
+                r22 = 0
+                r23 = 0
+                r24 = 0
+                r25 = 0
+                r26 = 0
+                r27 = r1
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                int r1 = r1.typeid
+                r28 = r4
+                r4 = 2131231090(0x7f080172, float:1.8078251E38)
+                switch(r1) {
+                    case 1: goto L_0x01c1;
+                    case 2: goto L_0x0169;
+                    case 3: goto L_0x0117;
+                    case 4: goto L_0x0098;
+                    case 5: goto L_0x0098;
+                    case 6: goto L_0x0098;
+                    default: goto L_0x0094;
+                }
+            L_0x0094:
+                r4 = r28
+                goto L_0x0205
+            L_0x0098:
+                android.view.View r1 = r2.findViewById(r4)
+                r4 = r1
+                android.widget.TextView r4 = (android.widget.TextView) r4
+                r1 = 2131231099(0x7f08017b, float:1.807827E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r5 = r1
+                android.widget.TextView r5 = (android.widget.TextView) r5
+                r1 = 2131231059(0x7f080153, float:1.8078188E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r19 = r1
+                android.widget.TextView r19 = (android.widget.TextView) r19
+                r1 = 2131231081(0x7f080169, float:1.8078233E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r20 = r1
+                android.widget.TextView r20 = (android.widget.TextView) r20
+                r1 = 2131230803(0x7f080053, float:1.807767E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r23 = r1
+                android.widget.CheckBox r23 = (android.widget.CheckBox) r23
+                r1 = 2131230801(0x7f080051, float:1.8077665E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r24 = r1
+                android.widget.CheckBox r24 = (android.widget.CheckBox) r24
+                r1 = 2131230802(0x7f080052, float:1.8077667E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r25 = r1
+                android.widget.CheckBox r25 = (android.widget.CheckBox) r25
+                r1 = 2131230804(0x7f080054, float:1.8077671E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r26 = r1
+                android.widget.CheckBox r26 = (android.widget.CheckBox) r26
+                r1 = 2131231087(0x7f08016f, float:1.8078245E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r21 = r1
+                android.widget.TextView r21 = (android.widget.TextView) r21
+                r1 = 2131231078(0x7f080166, float:1.8078227E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r22 = r1
+                android.widget.TextView r22 = (android.widget.TextView) r22
+                r1 = 2131231084(0x7f08016c, float:1.807824E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r10 = r1
+                android.widget.TextView r10 = (android.widget.TextView) r10
+                r1 = 2131231096(0x7f080178, float:1.8078263E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r11 = r1
+                android.widget.TextView r11 = (android.widget.TextView) r11
+                goto L_0x0205
+            L_0x0117:
+                android.view.View r1 = r2.findViewById(r4)
+                r4 = r1
+                android.widget.TextView r4 = (android.widget.TextView) r4
+                r1 = 2131231099(0x7f08017b, float:1.807827E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r5 = r1
+                android.widget.TextView r5 = (android.widget.TextView) r5
+                r1 = 2131231106(0x7f080182, float:1.8078284E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r15 = r1
+                android.widget.TextView r15 = (android.widget.TextView) r15
+                r1 = 2131231093(0x7f080175, float:1.8078257E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r16 = r1
+                android.widget.TextView r16 = (android.widget.TextView) r16
+                r1 = 2131231074(0x7f080162, float:1.8078219E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r17 = r1
+                android.widget.TextView r17 = (android.widget.TextView) r17
+                r1 = 2131231076(0x7f080164, float:1.8078223E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r18 = r1
+                android.widget.TextView r18 = (android.widget.TextView) r18
+                r1 = 2131231084(0x7f08016c, float:1.807824E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r10 = r1
+                android.widget.TextView r10 = (android.widget.TextView) r10
+                r1 = 2131231096(0x7f080178, float:1.8078263E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r11 = r1
+                android.widget.TextView r11 = (android.widget.TextView) r11
+                goto L_0x0205
+            L_0x0169:
+                android.view.View r1 = r2.findViewById(r4)
+                r4 = r1
+                android.widget.TextView r4 = (android.widget.TextView) r4
+                r1 = 2131231099(0x7f08017b, float:1.807827E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r5 = r1
+                android.widget.TextView r5 = (android.widget.TextView) r5
+                r1 = 2131231062(0x7f080156, float:1.8078194E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r12 = r1
+                android.widget.TextView r12 = (android.widget.TextView) r12
+                r1 = 2131231069(0x7f08015d, float:1.8078209E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r13 = r1
+                android.widget.TextView r13 = (android.widget.TextView) r13
+                r1 = 2131231067(0x7f08015b, float:1.8078205E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r14 = r1
+                android.widget.TextView r14 = (android.widget.TextView) r14
+                r1 = 2131231104(0x7f080180, float:1.807828E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r8 = r1
+                android.widget.TextView r8 = (android.widget.TextView) r8
+                r1 = 2131231102(0x7f08017e, float:1.8078276E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r9 = r1
+                android.widget.TextView r9 = (android.widget.TextView) r9
+                r1 = 2131231084(0x7f08016c, float:1.807824E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r10 = r1
+                android.widget.TextView r10 = (android.widget.TextView) r10
+                r1 = 2131231096(0x7f080178, float:1.8078263E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r11 = r1
+                android.widget.TextView r11 = (android.widget.TextView) r11
+                goto L_0x0205
+            L_0x01c1:
+                android.view.View r1 = r2.findViewById(r4)
+                r4 = r1
+                android.widget.TextView r4 = (android.widget.TextView) r4
+                r1 = 2131231099(0x7f08017b, float:1.807827E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r5 = r1
+                android.widget.TextView r5 = (android.widget.TextView) r5
+                r1 = 2131231065(0x7f080159, float:1.80782E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r7 = r1
+                android.widget.TextView r7 = (android.widget.TextView) r7
+                r1 = 2131231104(0x7f080180, float:1.807828E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r8 = r1
+                android.widget.TextView r8 = (android.widget.TextView) r8
+                r1 = 2131231102(0x7f08017e, float:1.8078276E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r9 = r1
+                android.widget.TextView r9 = (android.widget.TextView) r9
+                r1 = 2131231084(0x7f08016c, float:1.807824E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r10 = r1
+                android.widget.TextView r10 = (android.widget.TextView) r10
+                r1 = 2131231096(0x7f080178, float:1.8078263E38)
+                android.view.View r1 = r2.findViewById(r1)
+                r11 = r1
+                android.widget.TextView r11 = (android.widget.TextView) r11
+            L_0x0205:
+                r1 = r4
+                r28 = r5
+                r29 = r7
+                r30 = r8
+                r31 = r9
+                r32 = r10
+                r33 = r11
+                r34 = r12
+                r35 = r13
+                r36 = r14
+                r37 = r15
+                r38 = r16
+                r39 = r17
+                r40 = r18
+                r41 = r19
+                r42 = r20
+                r43 = r21
+                r44 = r22
+                r45 = r23
+                r46 = r24
+                r47 = r25
+                r48 = r26
+                r49 = r4
+                r4 = 2131230788(0x7f080044, float:1.8077639E38)
+                android.view.View r4 = r2.findViewById(r4)
+                android.widget.Button r4 = (android.widget.Button) r4
+                r50 = r5
+                r5 = 2131230859(0x7f08008b, float:1.8077783E38)
+                android.view.View r5 = r2.findViewById(r5)
+                android.widget.Button r5 = (android.widget.Button) r5
+                r6 = 2131230843(0x7f08007b, float:1.807775E38)
+                android.view.View r6 = r2.findViewById(r6)
+                android.widget.Button r6 = (android.widget.Button) r6
+                r51 = r7
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$_Vh2z_IxA4fo38cu_6F82tEj1q8 r7 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$_Vh2z_IxA4fo38cu_6F82tEj1q8
+                r7.<init>(r3)
+                r4.setOnClickListener(r7)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$y-C3TKTOcghAGmGmMzt_L3PLATs r7 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$y-C3TKTOcghAGmGmMzt_L3PLATs
+                r7.<init>(r3)
+                r5.setOnClickListener(r7)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$yctajHYP_0fRwVSr1JlzQcbzBKg r7 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$yctajHYP_0fRwVSr1JlzQcbzBKg
+                r7.<init>(r2, r3)
+                r6.setOnClickListener(r7)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                int r7 = r7.typeid
+                r52 = r2
+                java.lang.String r2 = "%d"
+                r53 = r3
+                switch(r7) {
+                    case 1: goto L_0x04c2;
+                    case 2: goto L_0x0437;
+                    case 3: goto L_0x039f;
+                    case 4: goto L_0x02a0;
+                    case 5: goto L_0x02a0;
+                    case 6: goto L_0x02a0;
+                    default: goto L_0x0276;
+                }
+            L_0x0276:
+                r54 = r5
+                r3 = r28
+                r7 = r30
+                r5 = r32
+                r32 = r44
+                r44 = r46
+                r30 = r48
+                r48 = 0
+                r28 = r4
+                r46 = r8
+                r8 = r31
+                r4 = r33
+                r31 = r43
+                r43 = r45
+                r33 = r47
+                r47 = r9
+                r9 = r29
+                r45 = r41
+                r29 = r1
+                r41 = r6
+                goto L_0x0528
+            L_0x02a0:
+                java.lang.String r7 = r0.mName
+                r1.setText(r7)
+                java.lang.String r7 = r0.mPlace
+                r3 = r28
+                r3.setText(r7)
+                r28 = r4
+                r7 = 1
+                java.lang.Object[] r4 = new java.lang.Object[r7]
+                int r7 = r0.mCooldown
+                java.lang.Integer r7 = java.lang.Integer.valueOf(r7)
+                r54 = r5
+                r5 = 0
+                r4[r5] = r7
+                java.lang.String r4 = java.lang.String.format(r2, r4)
+                r7 = r41
+                r7.setText(r4)
+                r4 = 1
+                java.lang.Object[] r5 = new java.lang.Object[r4]
+                int r4 = r0.mMaxIgnore
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r41 = r6
+                r6 = 0
+                r5[r6] = r4
+                java.lang.String r4 = java.lang.String.format(r2, r5)
+                r5 = r42
+                r5.setText(r4)
+                r4 = r45
+                r4.setEnabled(r6)
+                r5 = r46
+                r5.setEnabled(r6)
+                r45 = r7
+                r7 = r47
+                r7.setEnabled(r6)
+                r46 = r8
+                r8 = r48
+                r8.setEnabled(r6)
+                java.lang.String r6 = r0.mDaytime
+                r47 = r9
+                java.lang.String r9 = "1"
+                boolean r6 = r6.contains(r9)
+                if (r6 == 0) goto L_0x0305
+                r6 = 1
+                r4.setChecked(r6)
+                goto L_0x0306
+            L_0x0305:
+                r6 = 1
+            L_0x0306:
+                java.lang.String r9 = r0.mDaytime
+                java.lang.String r6 = "2"
+                boolean r6 = r9.contains(r6)
+                if (r6 == 0) goto L_0x0315
+                r6 = 1
+                r5.setChecked(r6)
+                goto L_0x0316
+            L_0x0315:
+                r6 = 1
+            L_0x0316:
+                java.lang.String r9 = r0.mDaytime
+                java.lang.String r6 = "3"
+                boolean r6 = r9.contains(r6)
+                if (r6 == 0) goto L_0x0325
+                r6 = 1
+                r7.setChecked(r6)
+                goto L_0x0326
+            L_0x0325:
+                r6 = 1
+            L_0x0326:
+                java.lang.String r9 = r0.mDaytime
+                java.lang.String r6 = "4"
+                boolean r6 = r9.contains(r6)
+                if (r6 == 0) goto L_0x0335
+                r6 = 1
+                r8.setChecked(r6)
+                goto L_0x0336
+            L_0x0335:
+                r6 = 1
+            L_0x0336:
+                java.lang.Object[] r9 = new java.lang.Object[r6]
+                int r6 = r0.mMinDur
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r48 = 0
+                r9[r48] = r6
+                java.lang.String r6 = java.lang.String.format(r2, r9)
+                r9 = r43
+                r9.setText(r6)
+                r43 = r4
+                r6 = 1
+                java.lang.Object[] r4 = new java.lang.Object[r6]
+                int r6 = r0.mMaxDur
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r4[r48] = r6
+                java.lang.String r4 = java.lang.String.format(r2, r4)
+                r6 = r44
+                r6.setText(r4)
+                r44 = r5
+                r4 = 1
+                java.lang.Object[] r5 = new java.lang.Object[r4]
+                int r4 = r0.mMent
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r5[r48] = r4
+                java.lang.String r4 = java.lang.String.format(r2, r5)
+                r5 = r32
+                r5.setText(r4)
+                r4 = 1
+                java.lang.Object[] r4 = new java.lang.Object[r4]
+                r32 = r6
+                int r6 = r0.mPhys
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r4[r48] = r6
+                java.lang.String r2 = java.lang.String.format(r2, r4)
+                r4 = r33
+                r4.setText(r2)
+                r33 = r7
+                r7 = r30
+                r48 = 0
+                r30 = r8
+                r8 = r31
+                r31 = r9
+                r9 = r29
+                r29 = r1
+                goto L_0x0528
+            L_0x039f:
+                r54 = r5
+                r3 = r28
+                r5 = r32
+                r32 = r44
+                r44 = r46
+                r7 = r47
+                r28 = r4
+                r46 = r8
+                r47 = r9
+                r4 = r33
+                r9 = r43
+                r43 = r45
+                r8 = r48
+                r45 = r41
+                r41 = r6
+                java.lang.String r6 = r0.mName
+                r1.setText(r6)
+                java.lang.String r6 = r0.mPlace
+                r3.setText(r6)
+                r33 = r7
+                r6 = 1
+                java.lang.Object[] r7 = new java.lang.Object[r6]
+                int r6 = r0.mTotalDur
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r48 = 0
+                r7[r48] = r6
+                java.lang.String r6 = java.lang.String.format(r2, r7)
+                r7 = r37
+                r7.setText(r6)
+                r6 = 1
+                java.lang.Object[] r7 = new java.lang.Object[r6]
+                int r6 = r0.mPartDur
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r7[r48] = r6
+                java.lang.String r6 = java.lang.String.format(r2, r7)
+                r7 = r38
+                r7.setText(r6)
+                java.lang.String r6 = r0.mDDate
+                r7 = r39
+                r7.setText(r6)
+                java.lang.String r6 = r0.mDTime
+                r7 = r40
+                r7.setText(r6)
+                r6 = 1
+                java.lang.Object[] r7 = new java.lang.Object[r6]
+                int r6 = r0.mMent
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r48 = 0
+                r7[r48] = r6
+                java.lang.String r6 = java.lang.String.format(r2, r7)
+                r5.setText(r6)
+                r6 = 1
+                java.lang.Object[] r6 = new java.lang.Object[r6]
+                int r7 = r0.mPhys
+                java.lang.Integer r7 = java.lang.Integer.valueOf(r7)
+                r6[r48] = r7
+                java.lang.String r2 = java.lang.String.format(r2, r6)
+                r4.setText(r2)
+                r7 = r30
+                r48 = 0
+                r30 = r8
+                r8 = r31
+                r31 = r9
+                r9 = r29
+                r29 = r1
+                goto L_0x0528
+            L_0x0437:
+                r54 = r5
+                r3 = r28
+                r5 = r32
+                r32 = r44
+                r44 = r46
+                r28 = r4
+                r46 = r8
+                r4 = r33
+                r33 = r47
+                r8 = r48
+                r47 = r9
+                r9 = r43
+                r43 = r45
+                r45 = r41
+                r41 = r6
+                java.lang.String r6 = r0.mName
+                r1.setText(r6)
+                java.lang.String r6 = r0.mPlace
+                r3.setText(r6)
+                r6 = 1
+                java.lang.Object[] r7 = new java.lang.Object[r6]
+                int r6 = r0.mCycle
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r48 = 0
+                r7[r48] = r6
+                java.lang.String r6 = java.lang.String.format(r2, r7)
+                r7 = r34
+                r7.setText(r6)
+                java.lang.String r6 = r0.mDateStart
+                r7 = r35
+                r7.setText(r6)
+                java.lang.String r6 = r0.mDateEnd
+                r7 = r36
+                r7.setText(r6)
+                java.lang.String r6 = r0.mTimeStart
+                r7 = r30
+                r7.setText(r6)
+                java.lang.String r6 = r0.mTimeEnd
+                r30 = r8
+                r8 = r31
+                r8.setText(r6)
+                r31 = r9
+                r6 = 1
+                java.lang.Object[] r9 = new java.lang.Object[r6]
+                int r6 = r0.mMent
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r48 = 0
+                r9[r48] = r6
+                java.lang.String r6 = java.lang.String.format(r2, r9)
+                r5.setText(r6)
+                r6 = 1
+                java.lang.Object[] r6 = new java.lang.Object[r6]
+                int r9 = r0.mPhys
+                java.lang.Integer r9 = java.lang.Integer.valueOf(r9)
+                r6[r48] = r9
+                java.lang.String r2 = java.lang.String.format(r2, r6)
+                r4.setText(r2)
+                r9 = r29
+                r48 = 0
+                r29 = r1
+                goto L_0x0528
+            L_0x04c2:
+                r54 = r5
+                r3 = r28
+                r7 = r30
+                r5 = r32
+                r32 = r44
+                r44 = r46
+                r30 = r48
+                r28 = r4
+                r46 = r8
+                r8 = r31
+                r4 = r33
+                r31 = r43
+                r43 = r45
+                r33 = r47
+                r47 = r9
+                r45 = r41
+                r41 = r6
+                java.lang.String r6 = r0.mName
+                r1.setText(r6)
+                java.lang.String r6 = r0.mPlace
+                r3.setText(r6)
+                java.lang.String r6 = r0.mDate
+                r9 = r29
+                r9.setText(r6)
+                java.lang.String r6 = r0.mTimeStart
+                r7.setText(r6)
+                java.lang.String r6 = r0.mTimeEnd
+                r8.setText(r6)
+                r29 = r1
+                r6 = 1
+                java.lang.Object[] r1 = new java.lang.Object[r6]
+                int r6 = r0.mMent
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r48 = 0
+                r1[r48] = r6
+                java.lang.String r1 = java.lang.String.format(r2, r1)
+                r5.setText(r1)
+                r1 = 1
+                java.lang.Object[] r1 = new java.lang.Object[r1]
+                int r6 = r0.mPhys
+                java.lang.Integer r6 = java.lang.Integer.valueOf(r6)
+                r1[r48] = r6
+                java.lang.String r1 = java.lang.String.format(r2, r1)
+                r4.setText(r1)
+            L_0x0528:
+                return r48
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.example.myapplication.Task_Adapter.MyOnLongClickListener.onLongClick(android.view.View):boolean");
+        }
+
+        public /* synthetic */ void lambda$onLongClick$28$Task_Adapter$MyOnLongClickListener(PopupWindow r83, View r84) {
+            /*
+                r82 = this;
+                r15 = r82
+                r83.dismiss()
+                r0 = 0
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                int r1 = r1.typeid
+                r2 = 0
+                switch(r1) {
+                    case 1: goto L_0x004d;
+                    case 2: goto L_0x0039;
+                    case 3: goto L_0x0025;
+                    case 4: goto L_0x0011;
+                    case 5: goto L_0x0011;
+                    case 6: goto L_0x0011;
+                    default: goto L_0x000e;
+                }
+            L_0x000e:
+                r23 = r0
+                goto L_0x0060
+            L_0x0011:
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r1 = r1.mContext
+                android.view.LayoutInflater r1 = android.view.LayoutInflater.from(r1)
+                r3 = 2131427420(0x7f0b005c, float:1.8476456E38)
+                android.view.View r0 = r1.inflate(r3, r2)
+                r23 = r0
+                goto L_0x0060
+            L_0x0025:
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r1 = r1.mContext
+                android.view.LayoutInflater r1 = android.view.LayoutInflater.from(r1)
+                r3 = 2131427419(0x7f0b005b, float:1.8476454E38)
+                android.view.View r0 = r1.inflate(r3, r2)
+                r23 = r0
+                goto L_0x0060
+            L_0x0039:
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r1 = r1.mContext
+                android.view.LayoutInflater r1 = android.view.LayoutInflater.from(r1)
+                r3 = 2131427418(0x7f0b005a, float:1.8476452E38)
+                android.view.View r0 = r1.inflate(r3, r2)
+                r23 = r0
+                goto L_0x0060
+            L_0x004d:
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                android.content.Context r1 = r1.mContext
+                android.view.LayoutInflater r1 = android.view.LayoutInflater.from(r1)
+                r3 = 2131427417(0x7f0b0059, float:1.847645E38)
+                android.view.View r0 = r1.inflate(r3, r2)
+                r23 = r0
+            L_0x0060:
+                r14 = r23
+                android.widget.PopupWindow r0 = new android.widget.PopupWindow
+                r1 = -1
+                r2 = -2
+                r0.<init>(r14, r1, r2)
+                r13 = r0
+                r0 = 48
+                r1 = 10
+                r12 = r84
+                r13.showAtLocation(r12, r0, r1, r1)
+                r11 = 1
+                r13.setFocusable(r11)
+                r0 = 0
+                r13.setOutsideTouchable(r0)
+                r13.update()
+                r1 = 0
+                r2 = 0
+                r3 = 0
+                r4 = 0
+                r5 = 0
+                r6 = 0
+                r7 = 0
+                r8 = 0
+                r9 = 0
+                r10 = 0
+                r16 = 0
+                r17 = 0
+                r18 = 0
+                r19 = 0
+                r20 = 0
+                r21 = 0
+                r22 = 0
+                r24 = 0
+                r25 = 0
+                r26 = 0
+                r27 = 0
+                r28 = 0
+                r29 = 0
+                com.example.myapplication.Task_Adapter r0 = com.example.myapplication.Task_Adapter.this
+                int r0 = r0.typeid
+                r11 = 2131231091(0x7f080173, float:1.8078253E38)
+                switch(r0) {
+                    case 1: goto L_0x029e;
+                    case 2: goto L_0x0215;
+                    case 3: goto L_0x0195;
+                    case 4: goto L_0x00dc;
+                    case 5: goto L_0x00dc;
+                    case 6: goto L_0x00dc;
+                    default: goto L_0x00ac;
+                }
+            L_0x00ac:
+                r32 = r7
+                r33 = r8
+                r34 = r9
+                r35 = r10
+                r36 = r16
+                r37 = r17
+                r38 = r18
+                r39 = r19
+                r40 = r20
+                r41 = r21
+                r42 = r22
+                r43 = r24
+                r44 = r25
+                r45 = r26
+                r46 = r27
+                r47 = r28
+                r48 = r29
+                r24 = r1
+                r25 = r2
+                r26 = r3
+                r27 = r4
+                r28 = r5
+                r29 = r6
+                goto L_0x0310
+            L_0x00dc:
+                android.view.View r0 = r14.findViewById(r11)
+                r8 = r0
+                android.widget.EditText r8 = (android.widget.EditText) r8
+                r0 = 2131231100(0x7f08017c, float:1.8078271E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r9 = r0
+                android.widget.EditText r9 = (android.widget.EditText) r9
+                r0 = 2131231060(0x7f080154, float:1.807819E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r21 = r0
+                android.widget.EditText r21 = (android.widget.EditText) r21
+                r0 = 2131231082(0x7f08016a, float:1.8078235E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r22 = r0
+                android.widget.EditText r22 = (android.widget.EditText) r22
+                r0 = 2131231072(0x7f080160, float:1.8078215E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r20 = r0
+                android.widget.EditText r20 = (android.widget.EditText) r20
+                r0 = 2131230803(0x7f080053, float:1.807767E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r26 = r0
+                android.widget.CheckBox r26 = (android.widget.CheckBox) r26
+                r0 = 2131230801(0x7f080051, float:1.8077665E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r27 = r0
+                android.widget.CheckBox r27 = (android.widget.CheckBox) r27
+                r0 = 2131230802(0x7f080052, float:1.8077667E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r28 = r0
+                android.widget.CheckBox r28 = (android.widget.CheckBox) r28
+                r0 = 2131230804(0x7f080054, float:1.8077671E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r29 = r0
+                android.widget.CheckBox r29 = (android.widget.CheckBox) r29
+                r0 = 2131231088(0x7f080170, float:1.8078247E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r24 = r0
+                android.widget.EditText r24 = (android.widget.EditText) r24
+                r0 = 2131231079(0x7f080167, float:1.8078229E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r25 = r0
+                android.widget.EditText r25 = (android.widget.EditText) r25
+                r0 = 2131231085(0x7f08016d, float:1.8078241E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r10 = r0
+                android.widget.EditText r10 = (android.widget.EditText) r10
+                r0 = 2131231097(0x7f080179, float:1.8078265E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r16 = r0
+                android.widget.EditText r16 = (android.widget.EditText) r16
+                r32 = r7
+                r33 = r8
+                r34 = r9
+                r35 = r10
+                r36 = r16
+                r37 = r17
+                r38 = r18
+                r39 = r19
+                r40 = r20
+                r41 = r21
+                r42 = r22
+                r43 = r24
+                r44 = r25
+                r45 = r26
+                r46 = r27
+                r47 = r28
+                r48 = r29
+                r24 = r1
+                r25 = r2
+                r26 = r3
+                r27 = r4
+                r28 = r5
+                r29 = r6
+                goto L_0x0310
+            L_0x0195:
+                android.view.View r0 = r14.findViewById(r11)
+                r8 = r0
+                android.widget.EditText r8 = (android.widget.EditText) r8
+                r0 = 2131231100(0x7f08017c, float:1.8078271E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r9 = r0
+                android.widget.EditText r9 = (android.widget.EditText) r9
+                r0 = 2131231107(0x7f080183, float:1.8078286E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r18 = r0
+                android.widget.EditText r18 = (android.widget.EditText) r18
+                r0 = 2131231094(0x7f080176, float:1.807826E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r19 = r0
+                android.widget.EditText r19 = (android.widget.EditText) r19
+                r0 = 2131231075(0x7f080163, float:1.807822E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r6 = r0
+                android.widget.Button r6 = (android.widget.Button) r6
+                r0 = 2131231077(0x7f080165, float:1.8078225E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r7 = r0
+                android.widget.Button r7 = (android.widget.Button) r7
+                r0 = 2131231085(0x7f08016d, float:1.8078241E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r10 = r0
+                android.widget.EditText r10 = (android.widget.EditText) r10
+                r0 = 2131231097(0x7f080179, float:1.8078265E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r16 = r0
+                android.widget.EditText r16 = (android.widget.EditText) r16
+                r32 = r7
+                r33 = r8
+                r34 = r9
+                r35 = r10
+                r36 = r16
+                r37 = r17
+                r38 = r18
+                r39 = r19
+                r40 = r20
+                r41 = r21
+                r42 = r22
+                r43 = r24
+                r44 = r25
+                r45 = r26
+                r46 = r27
+                r47 = r28
+                r48 = r29
+                r24 = r1
+                r25 = r2
+                r26 = r3
+                r27 = r4
+                r28 = r5
+                r29 = r6
+                goto L_0x0310
+            L_0x0215:
+                android.view.View r0 = r14.findViewById(r11)
+                r8 = r0
+                android.widget.EditText r8 = (android.widget.EditText) r8
+                r0 = 2131231100(0x7f08017c, float:1.8078271E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r9 = r0
+                android.widget.EditText r9 = (android.widget.EditText) r9
+                r0 = 2131231063(0x7f080157, float:1.8078196E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r17 = r0
+                android.widget.EditText r17 = (android.widget.EditText) r17
+                r0 = 2131231070(0x7f08015e, float:1.807821E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r4 = r0
+                android.widget.Button r4 = (android.widget.Button) r4
+                r0 = 2131231068(0x7f08015c, float:1.8078207E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r5 = r0
+                android.widget.Button r5 = (android.widget.Button) r5
+                r0 = 2131231105(0x7f080181, float:1.8078282E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r2 = r0
+                android.widget.Button r2 = (android.widget.Button) r2
+                r0 = 2131231103(0x7f08017f, float:1.8078278E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r3 = r0
+                android.widget.Button r3 = (android.widget.Button) r3
+                r0 = 2131231085(0x7f08016d, float:1.8078241E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r10 = r0
+                android.widget.EditText r10 = (android.widget.EditText) r10
+                r0 = 2131231097(0x7f080179, float:1.8078265E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r16 = r0
+                android.widget.EditText r16 = (android.widget.EditText) r16
+                r32 = r7
+                r33 = r8
+                r34 = r9
+                r35 = r10
+                r36 = r16
+                r37 = r17
+                r38 = r18
+                r39 = r19
+                r40 = r20
+                r41 = r21
+                r42 = r22
+                r43 = r24
+                r44 = r25
+                r45 = r26
+                r46 = r27
+                r47 = r28
+                r48 = r29
+                r24 = r1
+                r25 = r2
+                r26 = r3
+                r27 = r4
+                r28 = r5
+                r29 = r6
+                goto L_0x0310
+            L_0x029e:
+                android.view.View r0 = r14.findViewById(r11)
+                r8 = r0
+                android.widget.EditText r8 = (android.widget.EditText) r8
+                r0 = 2131231100(0x7f08017c, float:1.8078271E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r9 = r0
+                android.widget.EditText r9 = (android.widget.EditText) r9
+                r0 = 2131231066(0x7f08015a, float:1.8078203E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r1 = r0
+                android.widget.Button r1 = (android.widget.Button) r1
+                r0 = 2131231105(0x7f080181, float:1.8078282E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r2 = r0
+                android.widget.Button r2 = (android.widget.Button) r2
+                r0 = 2131231103(0x7f08017f, float:1.8078278E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r3 = r0
+                android.widget.Button r3 = (android.widget.Button) r3
+                r0 = 2131231085(0x7f08016d, float:1.8078241E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r10 = r0
+                android.widget.EditText r10 = (android.widget.EditText) r10
+                r0 = 2131231097(0x7f080179, float:1.8078265E38)
+                android.view.View r0 = r14.findViewById(r0)
+                r16 = r0
+                android.widget.EditText r16 = (android.widget.EditText) r16
+                r32 = r7
+                r33 = r8
+                r34 = r9
+                r35 = r10
+                r36 = r16
+                r37 = r17
+                r38 = r18
+                r39 = r19
+                r40 = r20
+                r41 = r21
+                r42 = r22
+                r43 = r24
+                r44 = r25
+                r45 = r26
+                r46 = r27
+                r47 = r28
+                r48 = r29
+                r24 = r1
+                r25 = r2
+                r26 = r3
+                r27 = r4
+                r28 = r5
+                r29 = r6
+            L_0x0310:
+                r11 = r33
+                r10 = r34
+                r9 = r24
+                r8 = r25
+                r7 = r26
+                r6 = r37
+                r5 = r27
+                r4 = r28
+                r3 = r35
+                r2 = r36
+                r1 = r29
+                r0 = r32
+                r49 = r38
+                r50 = r39
+                r51 = r40
+                r52 = r41
+                r53 = r42
+                r54 = r43
+                r55 = r44
+                r56 = r45
+                r57 = r46
+                r58 = r47
+                r59 = r48
+                r12 = 2131230921(0x7f0800c9, float:1.8077908E38)
+                android.view.View r12 = r14.findViewById(r12)
+                android.widget.Button r12 = (android.widget.Button) r12
+                r16 = r13
+                r13 = 2131230923(0x7f0800cb, float:1.8077912E38)
+                android.view.View r13 = r14.findViewById(r13)
+                android.widget.Button r13 = (android.widget.Button) r13
+                r17 = r9
+                r9 = 2131230922(0x7f0800ca, float:1.807791E38)
+                android.view.View r9 = r14.findViewById(r9)
+                android.widget.Button r9 = (android.widget.Button) r9
+                r18 = r7
+                r7 = 2131230981(0x7f080105, float:1.807803E38)
+                android.view.View r7 = r14.findViewById(r7)
+                android.widget.Button r7 = (android.widget.Button) r7
+                r19 = r8
+                r8 = 2131230983(0x7f080107, float:1.8078034E38)
+                android.view.View r8 = r14.findViewById(r8)
+                android.widget.Button r8 = (android.widget.Button) r8
+                r20 = r4
+                r4 = 2131230982(0x7f080106, float:1.8078032E38)
+                android.view.View r4 = r14.findViewById(r4)
+                android.widget.Button r4 = (android.widget.Button) r4
+                r21 = r14
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$q3uzVPApfZu7F8Z0sX0NWx7DekI r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$q3uzVPApfZu7F8Z0sX0NWx7DekI
+                r14.<init>(r3, r12, r13, r9)
+                r12.setOnTouchListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$uI64L41qu7TwpJB5ttCIcYWoZtI r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$uI64L41qu7TwpJB5ttCIcYWoZtI
+                r14.<init>(r3, r12, r13, r9)
+                r13.setOnTouchListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$6ToO5RXgzJ0WeuDUGvshKILcjGY r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$6ToO5RXgzJ0WeuDUGvshKILcjGY
+                r14.<init>(r3, r12, r13, r9)
+                r9.setOnTouchListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$bUCo7M3JBQhh_xYfutNDfDRUMf0 r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$bUCo7M3JBQhh_xYfutNDfDRUMf0
+                r14.<init>(r2, r7, r8, r4)
+                r7.setOnTouchListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$NC3DIfppw8V7GavpC-EWLJv_cKY r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$NC3DIfppw8V7GavpC-EWLJv_cKY
+                r14.<init>(r2, r7, r8, r4)
+                r8.setOnTouchListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$zhRxi1c0y6LX5T3SOWAZ3uOGyCo r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$zhRxi1c0y6LX5T3SOWAZ3uOGyCo
+                r14.<init>(r2, r7, r8, r4)
+                r4.setOnTouchListener(r14)
+                com.example.myapplication.Task_Adapter r14 = com.example.myapplication.Task_Adapter.this
+                int r14 = r14.typeid
+                r22 = r4
+                java.lang.String r4 = "4"
+                r60 = r8
+                java.lang.String r8 = "3"
+                r61 = r7
+                java.lang.String r7 = "2"
+                r62 = r9
+                java.lang.String r9 = "1"
+                r63 = r13
+                java.lang.String r13 = "%d"
+                switch(r14) {
+                    case 1: goto L_0x05d5;
+                    case 2: goto L_0x055b;
+                    case 3: goto L_0x04d8;
+                    case 4: goto L_0x03ea;
+                    case 5: goto L_0x03ea;
+                    case 6: goto L_0x03ea;
+                    default: goto L_0x03cb;
+                }
+            L_0x03cb:
+                r64 = r12
+                r65 = r20
+                r20 = r50
+                r12 = r56
+                r14 = r57
+                r50 = r0
+                r56 = r7
+                r57 = r8
+                r8 = r19
+                r7 = r58
+                r58 = r4
+                r19 = r6
+                r6 = r18
+                r4 = 0
+                r18 = r1
+                goto L_0x0634
+            L_0x03ea:
+                java.lang.String r14 = r15.mName
+                r11.setText(r14)
+                java.lang.String r14 = r15.mPlace
+                r10.setText(r14)
+                r64 = r12
+                r14 = 1
+                java.lang.Object[] r12 = new java.lang.Object[r14]
+                int r14 = r15.mCooldown
+                java.lang.Integer r14 = java.lang.Integer.valueOf(r14)
+                r30 = 0
+                r12[r30] = r14
+                java.lang.String r12 = java.lang.String.format(r13, r12)
+                r14 = r52
+                r14.setText(r12)
+                r12 = 1
+                java.lang.Object[] r14 = new java.lang.Object[r12]
+                int r12 = r15.mMaxIgnore
+                java.lang.Integer r12 = java.lang.Integer.valueOf(r12)
+                r14[r30] = r12
+                java.lang.String r12 = java.lang.String.format(r13, r14)
+                r14 = r53
+                r14.setText(r12)
+                java.lang.String r12 = r15.mDaytime
+                boolean r12 = r12.contains(r9)
+                if (r12 == 0) goto L_0x0431
+                r53 = r14
+                r12 = r56
+                r14 = 1
+                r12.setChecked(r14)
+                goto L_0x0436
+            L_0x0431:
+                r53 = r14
+                r12 = r56
+                r14 = 1
+            L_0x0436:
+                java.lang.String r14 = r15.mDaytime
+                boolean r14 = r14.contains(r7)
+                if (r14 == 0) goto L_0x0447
+                r56 = r7
+                r14 = r57
+                r7 = 1
+                r14.setChecked(r7)
+                goto L_0x044c
+            L_0x0447:
+                r56 = r7
+                r14 = r57
+                r7 = 1
+            L_0x044c:
+                java.lang.String r7 = r15.mDaytime
+                boolean r7 = r7.contains(r8)
+                if (r7 == 0) goto L_0x045d
+                r57 = r8
+                r7 = r58
+                r8 = 1
+                r7.setChecked(r8)
+                goto L_0x0462
+            L_0x045d:
+                r57 = r8
+                r7 = r58
+                r8 = 1
+            L_0x0462:
+                java.lang.String r8 = r15.mDaytime
+                boolean r8 = r8.contains(r4)
+                if (r8 == 0) goto L_0x0473
+                r58 = r4
+                r8 = r59
+                r4 = 1
+                r8.setChecked(r4)
+                goto L_0x0478
+            L_0x0473:
+                r58 = r4
+                r8 = r59
+                r4 = 1
+            L_0x0478:
+                r59 = r8
+                java.lang.Object[] r8 = new java.lang.Object[r4]
+                int r4 = r15.mMinDur
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r30 = 0
+                r8[r30] = r4
+                java.lang.String r4 = java.lang.String.format(r13, r8)
+                r8 = r54
+                r8.setText(r4)
+                r4 = 1
+                java.lang.Object[] r8 = new java.lang.Object[r4]
+                int r4 = r15.mMaxDur
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r8[r30] = r4
+                java.lang.String r4 = java.lang.String.format(r13, r8)
+                r8 = r55
+                r8.setText(r4)
+                r4 = 1
+                java.lang.Object[] r8 = new java.lang.Object[r4]
+                int r4 = r15.mMent
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r8[r30] = r4
+                java.lang.String r4 = java.lang.String.format(r13, r8)
+                r3.setText(r4)
+                r4 = 1
+                java.lang.Object[] r8 = new java.lang.Object[r4]
+                int r4 = r15.mPhys
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r8[r30] = r4
+                java.lang.String r4 = java.lang.String.format(r13, r8)
+                r2.setText(r4)
+                r8 = r19
+                r65 = r20
+                r20 = r50
+                r4 = 0
+                r50 = r0
+                r19 = r6
+                r6 = r18
+                r18 = r1
+                goto L_0x0634
+            L_0x04d8:
+                r64 = r12
+                r12 = r56
+                r14 = r57
+                r56 = r7
+                r57 = r8
+                r7 = r58
+                r58 = r4
+                java.lang.String r4 = r15.mName
+                r11.setText(r4)
+                java.lang.String r4 = r15.mPlace
+                r10.setText(r4)
+                r4 = 1
+                java.lang.Object[] r8 = new java.lang.Object[r4]
+                int r4 = r15.mTotalDur
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r30 = 0
+                r8[r30] = r4
+                java.lang.String r4 = java.lang.String.format(r13, r8)
+                r8 = r49
+                r8.setText(r4)
+                r4 = 1
+                java.lang.Object[] r8 = new java.lang.Object[r4]
+                int r4 = r15.mPartDur
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r8[r30] = r4
+                java.lang.String r4 = java.lang.String.format(r13, r8)
+                r8 = r50
+                r8.setText(r4)
+                java.lang.String r4 = r15.mDDate
+                r1.setText(r4)
+                java.lang.String r4 = r15.mDTime
+                r0.setText(r4)
+                r50 = r0
+                r4 = 1
+                java.lang.Object[] r0 = new java.lang.Object[r4]
+                int r4 = r15.mMent
+                java.lang.Integer r4 = java.lang.Integer.valueOf(r4)
+                r30 = 0
+                r0[r30] = r4
+                java.lang.String r0 = java.lang.String.format(r13, r0)
+                r3.setText(r0)
+                r0 = 1
+                java.lang.Object[] r4 = new java.lang.Object[r0]
+                int r0 = r15.mPhys
+                java.lang.Integer r0 = java.lang.Integer.valueOf(r0)
+                r4[r30] = r0
+                java.lang.String r0 = java.lang.String.format(r13, r4)
+                r2.setText(r0)
+                r65 = r20
+                r4 = 0
+                r20 = r8
+                r8 = r19
+                r19 = r6
+                r6 = r18
+                r18 = r1
+                goto L_0x0634
+            L_0x055b:
+                r64 = r12
+                r12 = r56
+                r14 = r57
+                r56 = r7
+                r57 = r8
+                r8 = r50
+                r7 = r58
+                r50 = r0
+                r58 = r4
+                java.lang.String r0 = r15.mName
+                r11.setText(r0)
+                java.lang.String r0 = r15.mPlace
+                r10.setText(r0)
+                r0 = 1
+                java.lang.Object[] r4 = new java.lang.Object[r0]
+                int r0 = r15.mCycle
+                java.lang.Integer r0 = java.lang.Integer.valueOf(r0)
+                r30 = 0
+                r4[r30] = r0
+                java.lang.String r0 = java.lang.String.format(r13, r4)
+                r6.setText(r0)
+                java.lang.String r0 = r15.mDateStart
+                r5.setText(r0)
+                java.lang.String r0 = r15.mDateEnd
+                r4 = r20
+                r4.setText(r0)
+                java.lang.String r0 = r15.mTimeStart
+                r20 = r8
+                r8 = r19
+                r8.setText(r0)
+                java.lang.String r0 = r15.mTimeEnd
+                r19 = r6
+                r6 = r18
+                r6.setText(r0)
+                r18 = r1
+                r0 = 1
+                java.lang.Object[] r1 = new java.lang.Object[r0]
+                int r0 = r15.mMent
+                java.lang.Integer r0 = java.lang.Integer.valueOf(r0)
+                r30 = 0
+                r1[r30] = r0
+                java.lang.String r0 = java.lang.String.format(r13, r1)
+                r3.setText(r0)
+                r0 = 1
+                java.lang.Object[] r1 = new java.lang.Object[r0]
+                int r0 = r15.mPhys
+                java.lang.Integer r0 = java.lang.Integer.valueOf(r0)
+                r1[r30] = r0
+                java.lang.String r0 = java.lang.String.format(r13, r1)
+                r2.setText(r0)
+                r65 = r4
+                r4 = 0
+                goto L_0x0634
+            L_0x05d5:
+                r64 = r12
+                r12 = r56
+                r14 = r57
+                r56 = r7
+                r57 = r8
+                r8 = r19
+                r7 = r58
+                r58 = r4
+                r19 = r6
+                r6 = r18
+                r4 = r20
+                r20 = r50
+                r50 = r0
+                r18 = r1
+                java.lang.String r0 = r15.mName
+                r11.setText(r0)
+                java.lang.String r0 = r15.mPlace
+                r10.setText(r0)
+                java.lang.String r0 = r15.mDate
+                r1 = r17
+                r1.setText(r0)
+                java.lang.String r0 = r15.mTimeStart
+                r8.setText(r0)
+                java.lang.String r0 = r15.mTimeEnd
+                r6.setText(r0)
+                r0 = 1
+                java.lang.Object[] r1 = new java.lang.Object[r0]
+                int r0 = r15.mMent
+                java.lang.Integer r0 = java.lang.Integer.valueOf(r0)
+                r65 = r4
+                r4 = 0
+                r1[r4] = r0
+                java.lang.String r0 = java.lang.String.format(r13, r1)
+                r3.setText(r0)
+                r0 = 1
+                java.lang.Object[] r1 = new java.lang.Object[r0]
+                int r0 = r15.mPhys
+                java.lang.Integer r0 = java.lang.Integer.valueOf(r0)
+                r1[r4] = r0
+                java.lang.String r0 = java.lang.String.format(r13, r1)
+                r2.setText(r0)
+            L_0x0634:
+                r13 = r64
+                r13.setPressed(r4)
+                r1 = r63
+                r1.setPressed(r4)
+                r0 = r62
+                r0.setPressed(r4)
+                int r4 = r15.mMent
+                r62 = r11
+                r11 = 2
+                r64 = r2
+                r2 = 1
+                if (r4 == r2) goto L_0x065b
+                if (r4 == r11) goto L_0x0657
+                r11 = 3
+                if (r4 == r11) goto L_0x0653
+                goto L_0x065f
+            L_0x0653:
+                r0.setPressed(r2)
+                goto L_0x065f
+            L_0x0657:
+                r1.setPressed(r2)
+                goto L_0x065f
+            L_0x065b:
+                r13.setPressed(r2)
+            L_0x065f:
+                r11 = r61
+                r2 = 0
+                r11.setPressed(r2)
+                r4 = r60
+                r4.setPressed(r2)
+                r30 = r5
+                r5 = r22
+                r5.setPressed(r2)
+                int r2 = r15.mPhys
+                r22 = r0
+                r0 = 1
+                if (r2 == r0) goto L_0x068e
+                r0 = 2
+                if (r2 == r0) goto L_0x0686
+                r60 = r10
+                r10 = 3
+                if (r2 == r10) goto L_0x0681
+                goto L_0x0697
+            L_0x0681:
+                r2 = 1
+                r5.setPressed(r2)
+                goto L_0x0697
+            L_0x0686:
+                r60 = r10
+                r2 = 1
+                r10 = 3
+                r4.setPressed(r2)
+                goto L_0x0697
+            L_0x068e:
+                r60 = r10
+                r0 = 2
+                r2 = 1
+                r10 = 3
+                r11.setPressed(r2)
+            L_0x0697:
+                boolean r2 = r12.isChecked()
+                if (r2 == 0) goto L_0x06ba
+                android.text.Editable r2 = r51.getText()
+                java.lang.String r2 = r2.toString()
+                java.lang.StringBuilder r0 = new java.lang.StringBuilder
+                r0.<init>()
+                r0.append(r2)
+                r0.append(r9)
+                java.lang.String r0 = r0.toString()
+                r9 = r51
+                r9.setText(r0)
+                goto L_0x06bc
+            L_0x06ba:
+                r9 = r51
+            L_0x06bc:
+                boolean r0 = r14.isChecked()
+                if (r0 == 0) goto L_0x06de
+                android.text.Editable r0 = r9.getText()
+                java.lang.String r0 = r0.toString()
+                java.lang.StringBuilder r2 = new java.lang.StringBuilder
+                r2.<init>()
+                r2.append(r0)
+                r10 = r56
+                r2.append(r10)
+                java.lang.String r2 = r2.toString()
+                r9.setText(r2)
+            L_0x06de:
+                boolean r0 = r7.isChecked()
+                if (r0 == 0) goto L_0x0700
+                android.text.Editable r0 = r9.getText()
+                java.lang.String r0 = r0.toString()
+                java.lang.StringBuilder r2 = new java.lang.StringBuilder
+                r2.<init>()
+                r2.append(r0)
+                r10 = r57
+                r2.append(r10)
+                java.lang.String r2 = r2.toString()
+                r9.setText(r2)
+            L_0x0700:
+                boolean r0 = r59.isChecked()
+                if (r0 == 0) goto L_0x0722
+                android.text.Editable r0 = r9.getText()
+                java.lang.String r0 = r0.toString()
+                java.lang.StringBuilder r2 = new java.lang.StringBuilder
+                r2.<init>()
+                r2.append(r0)
+                r10 = r58
+                r2.append(r10)
+                java.lang.String r2 = r2.toString()
+                r9.setText(r2)
+            L_0x0722:
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$1XI-SFRCT-IIloVpAlwsuq3De10 r0 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$1XI-SFRCT-IIloVpAlwsuq3De10
+                r0.<init>(r12, r9)
+                r12.setOnClickListener(r0)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$dLVEYgdyDfcuokFAlRMvQugdw8k r0 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$dLVEYgdyDfcuokFAlRMvQugdw8k
+                r0.<init>(r14, r9)
+                r14.setOnClickListener(r0)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$eZ6Nxq3HSt0ZcP-9NVGf4Xr0_EM r0 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$eZ6Nxq3HSt0ZcP-9NVGf4Xr0_EM
+                r0.<init>(r7, r9)
+                r7.setOnClickListener(r0)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$9KjHzkzKNxa0q7pucIxhBVBpwVM r0 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$9KjHzkzKNxa0q7pucIxhBVBpwVM
+                r10 = r59
+                r0.<init>(r10, r9)
+                r10.setOnClickListener(r0)
+                r0 = 2131230853(0x7f080085, float:1.807777E38)
+                r2 = r21
+                android.view.View r0 = r2.findViewById(r0)
+                android.widget.Button r0 = (android.widget.Button) r0
+                r21 = r0
+                r0 = 2131230795(0x7f08004b, float:1.8077653E38)
+                android.view.View r0 = r2.findViewById(r0)
+                android.widget.Button r0 = (android.widget.Button) r0
+                r51 = r0
+                com.example.myapplication.Task_Adapter r0 = com.example.myapplication.Task_Adapter.this
+                int r0 = r0.typeid
+                r61 = r11
+                r11 = 1
+                if (r0 != r11) goto L_0x07cb
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$BOUQcibhaWGOzwGz3o48y81ZksU r0 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$BOUQcibhaWGOzwGz3o48y81ZksU
+                r67 = r21
+                r21 = r22
+                r31 = r50
+                r50 = r0
+                r22 = r14
+                r14 = r51
+                r51 = 2
+                r56 = r18
+                r18 = r1
+                r1 = r82
+                r57 = r2
+                r58 = r64
+                r59 = r3
+                r3 = r17
+                r64 = r4
+                r81 = r65
+                r65 = r5
+                r5 = r81
+                r4 = r59
+                r66 = r30
+                r30 = r5
+                r5 = r58
+                r68 = r19
+                r19 = r6
+                r6 = r13
+                r69 = r19
+                r70 = r61
+                r61 = r7
+                r7 = r18
+                r71 = r10
+                r72 = r64
+                r10 = r8
+                r64 = r55
+                r55 = r54
+                r54 = r20
+                r8 = r21
+                r73 = r9
+                r19 = r12
+                r12 = r17
+                r74 = r21
+                r9 = r70
+                r63 = r10
+                r17 = 3
+                r10 = r72
+                r17 = r14
+                r51 = r62
+                r14 = 2
+                r11 = r65
+                r0.<init>(r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+                r12.setOnClickListener(r0)
+                goto L_0x0802
+            L_0x07cb:
+                r57 = r2
+                r59 = r3
+                r72 = r4
+                r69 = r6
+                r63 = r8
+                r73 = r9
+                r71 = r10
+                r56 = r18
+                r68 = r19
+                r67 = r21
+                r74 = r22
+                r66 = r30
+                r31 = r50
+                r70 = r61
+                r58 = r64
+                r30 = r65
+                r18 = r1
+                r65 = r5
+                r61 = r7
+                r19 = r12
+                r22 = r14
+                r12 = r17
+                r17 = r51
+                r64 = r55
+                r51 = r62
+                r14 = 2
+                r55 = r54
+                r54 = r20
+            L_0x0802:
+                com.example.myapplication.Task_Adapter r0 = com.example.myapplication.Task_Adapter.this
+                int r0 = r0.typeid
+                if (r0 != r14) goto L_0x083b
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$8KYsOHD86g_c1Z2nkVtfD_5E0-Y r11 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$8KYsOHD86g_c1Z2nkVtfD_5E0-Y
+                r0 = r11
+                r1 = r82
+                r2 = r57
+                r3 = r66
+                r4 = r59
+                r5 = r58
+                r6 = r13
+                r7 = r18
+                r8 = r74
+                r9 = r70
+                r10 = r72
+                r14 = r11
+                r11 = r65
+                r0.<init>(r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+                r11 = r66
+                r11.setOnClickListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$9o_wCOSB4IFkB9i56w4p8UqcaHw r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$9o_wCOSB4IFkB9i56w4p8UqcaHw
+                r0 = r14
+                r3 = r30
+                r50 = r11
+                r11 = r65
+                r0.<init>(r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+                r11 = r30
+                r11.setOnClickListener(r14)
+                goto L_0x083f
+            L_0x083b:
+                r11 = r30
+                r50 = r66
+            L_0x083f:
+                com.example.myapplication.Task_Adapter r0 = com.example.myapplication.Task_Adapter.this
+                int r0 = r0.typeid
+                r1 = 1
+                if (r0 == r1) goto L_0x0855
+                com.example.myapplication.Task_Adapter r0 = com.example.myapplication.Task_Adapter.this
+                int r0 = r0.typeid
+                r1 = 2
+                if (r0 != r1) goto L_0x084e
+                goto L_0x0855
+            L_0x084e:
+                r30 = r11
+                r62 = r63
+                r11 = r69
+                goto L_0x0888
+            L_0x0855:
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$HfA-Bda0Gw7YCTMr6RWUpU7RZ1Q r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$HfA-Bda0Gw7YCTMr6RWUpU7RZ1Q
+                r0 = r14
+                r1 = r82
+                r2 = r57
+                r3 = r63
+                r4 = r59
+                r5 = r58
+                r6 = r13
+                r7 = r18
+                r8 = r74
+                r9 = r70
+                r10 = r72
+                r30 = r11
+                r11 = r65
+                r0.<init>(r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+                r11 = r63
+                r11.setOnClickListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$pD10-11xqqZVVV036LMhZoR8Afs r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$pD10-11xqqZVVV036LMhZoR8Afs
+                r0 = r14
+                r3 = r69
+                r62 = r11
+                r11 = r65
+                r0.<init>(r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+                r11 = r69
+                r11.setOnClickListener(r14)
+            L_0x0888:
+                com.example.myapplication.Task_Adapter r0 = com.example.myapplication.Task_Adapter.this
+                int r0 = r0.typeid
+                r1 = 3
+                if (r0 != r1) goto L_0x08c1
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$fMbBn5hKuiBwa61tihJAIp7-Cg0 r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$fMbBn5hKuiBwa61tihJAIp7-Cg0
+                r0 = r14
+                r1 = r82
+                r2 = r57
+                r3 = r56
+                r4 = r59
+                r5 = r58
+                r6 = r13
+                r7 = r18
+                r8 = r74
+                r9 = r70
+                r10 = r72
+                r63 = r11
+                r11 = r65
+                r0.<init>(r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+                r11 = r56
+                r11.setOnClickListener(r14)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$I9eVrODw6dEvBoeeQhaIirQ8vu0 r14 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$I9eVrODw6dEvBoeeQhaIirQ8vu0
+                r0 = r14
+                r3 = r31
+                r11 = r65
+                r0.<init>(r2, r3, r4, r5, r6, r7, r8, r9, r10, r11)
+                r11 = r31
+                r11.setOnClickListener(r14)
+                goto L_0x08c5
+            L_0x08c1:
+                r63 = r11
+                r11 = r31
+            L_0x08c5:
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$nQLYNfQp9vLGyAvtFk8m4tOUxxQ r0 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$nQLYNfQp9vLGyAvtFk8m4tOUxxQ
+                r14 = r16
+                r0.<init>(r14)
+                r10 = r17
+                r10.setOnClickListener(r0)
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$yQ08iQG6Lb6mwfEXvbghiSmffpM r9 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$yQ08iQG6Lb6mwfEXvbghiSmffpM
+                r0 = r9
+                r1 = r82
+                r2 = r51
+                r3 = r60
+                r4 = r12
+                r5 = r62
+                r6 = r63
+                r7 = r59
+                r8 = r58
+                r76 = r9
+                r9 = r68
+                r16 = r10
+                r10 = r50
+                r31 = r11
+                r11 = r30
+                r66 = r12
+                r75 = r13
+                r69 = r19
+                r12 = r49
+                r77 = r14
+                r78 = r18
+                r13 = r54
+                r80 = r16
+                r79 = r22
+                r81 = r53
+                r53 = r52
+                r52 = r57
+                r57 = r81
+                r14 = r56
+                r15 = r31
+                r16 = r53
+                r17 = r57
+                r18 = r55
+                r19 = r64
+                r20 = r52
+                r21 = r73
+                r22 = r77
+                r0.<init>(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22)
+                r0 = r67
+                r1 = r76
+                r0.setOnClickListener(r1)
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.example.myapplication.Task_Adapter.MyOnLongClickListener.lambda$onLongClick$28$Task_Adapter$MyOnLongClickListener(android.widget.PopupWindow, android.view.View):void");
+        }
+
+        static /* synthetic */ boolean lambda$null$1(EditText mMentViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, View view, MotionEvent event) {
+            mMentViewEdit.setText("1");
+            bMentOne.setPressed(true);
+            bMentTwo.setPressed(false);
+            bMentThree.setPressed(false);
+            return true;
+        }
+
+        static /* synthetic */ boolean lambda$null$2(EditText mMentViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, View view, MotionEvent event) {
+            mMentViewEdit.setText("2");
+            bMentOne.setPressed(false);
+            bMentTwo.setPressed(true);
+            bMentThree.setPressed(false);
+            return true;
+        }
+
+        static /* synthetic */ boolean lambda$null$3(EditText mMentViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, View view, MotionEvent event) {
+            mMentViewEdit.setText("3");
+            bMentOne.setPressed(false);
+            bMentTwo.setPressed(false);
+            bMentThree.setPressed(true);
+            return true;
+        }
+
+        static /* synthetic */ boolean lambda$null$4(EditText mPhysViewEdit, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view, MotionEvent event) {
+            mPhysViewEdit.setText("1");
+            bPhysOne.setPressed(true);
+            bPhysTwo.setPressed(false);
+            bPhysThree.setPressed(false);
+            return true;
+        }
+
+        static /* synthetic */ boolean lambda$null$5(EditText mPhysViewEdit, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view, MotionEvent event) {
+            mPhysViewEdit.setText("2");
+            bPhysOne.setPressed(false);
+            bPhysTwo.setPressed(true);
+            bPhysThree.setPressed(false);
+            return true;
+        }
+
+        static /* synthetic */ boolean lambda$null$6(EditText mPhysViewEdit, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view, MotionEvent event) {
+            mPhysViewEdit.setText("3");
+            bPhysOne.setPressed(false);
+            bPhysTwo.setPressed(false);
+            bPhysThree.setPressed(true);
+            return true;
+        }
+
+        static /* synthetic */ void lambda$null$7(CheckBox cMorningViewEdit, EditText mDaytimeViewEdit, View view112) {
+            if (cMorningViewEdit.isChecked()) {
+                String text = mDaytimeViewEdit.getText().toString();
+                mDaytimeViewEdit.setText(text + "1");
+                return;
+            }
+            String text2 = mDaytimeViewEdit.getText().toString();
+            if (text2.contains("1")) {
+                mDaytimeViewEdit.setText(text2.replace("1", ""));
+            }
+        }
+
+        static /* synthetic */ void lambda$null$8(CheckBox cAfternoonViewEdit, EditText mDaytimeViewEdit, View view113) {
+            if (cAfternoonViewEdit.isChecked()) {
+                String text = mDaytimeViewEdit.getText().toString();
+                mDaytimeViewEdit.setText(text + "2");
+                return;
+            }
+            String text2 = mDaytimeViewEdit.getText().toString();
+            if (text2.contains("2")) {
+                mDaytimeViewEdit.setText(text2.replace("2", ""));
+            }
+        }
+
+        static /* synthetic */ void lambda$null$9(CheckBox cEveningViewEdit, EditText mDaytimeViewEdit, View view114) {
+            if (cEveningViewEdit.isChecked()) {
+                String text = mDaytimeViewEdit.getText().toString();
+                mDaytimeViewEdit.setText(text + "3");
+                return;
+            }
+            String text2 = mDaytimeViewEdit.getText().toString();
+            if (text2.contains("3")) {
+                mDaytimeViewEdit.setText(text2.replace("3", ""));
+            }
+        }
+
+        static /* synthetic */ void lambda$null$10(CheckBox cNightViewEdit, EditText mDaytimeViewEdit, View view115) {
+            if (cNightViewEdit.isChecked()) {
+                String text = mDaytimeViewEdit.getText().toString();
+                mDaytimeViewEdit.setText(text + "4");
+                return;
+            }
+            String text2 = mDaytimeViewEdit.getText().toString();
+            if (text2.contains("4")) {
+                mDaytimeViewEdit.setText(text2.replace("4", ""));
+            }
+        }
+
+        public /* synthetic */ void lambda$null$12$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDateViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view) {
+            View view2 = popupViewEdit;
+            view2.findViewById(R.id.date_picker).setVisibility(0);
+            view2.findViewById(R.id.date_set).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view2, true);
+            ((Button) view2.findViewById(R.id.date_set)).setOnClickListener(new View.OnClickListener(popupViewEdit, bDateViewEdit, mMentViewEdit, mPhysViewEdit, bMentOne, bMentTwo, bMentThree, bPhysOne, bPhysTwo, bPhysThree) {
+                public final /* synthetic */ View f$1;
+                public final /* synthetic */ Button f$10;
+                public final /* synthetic */ Button f$2;
+                public final /* synthetic */ EditText f$3;
+                public final /* synthetic */ EditText f$4;
+                public final /* synthetic */ Button f$5;
+                public final /* synthetic */ Button f$6;
+                public final /* synthetic */ Button f$7;
+                public final /* synthetic */ Button f$8;
+                public final /* synthetic */ Button f$9;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                    this.f$4 = r5;
+                    this.f$5 = r6;
+                    this.f$6 = r7;
+                    this.f$7 = r8;
+                    this.f$8 = r9;
+                    this.f$9 = r10;
+                    this.f$10 = r11;
+                }
+
+                public final void onClick(View view) {
+                    MyOnLongClickListener.this.lambda$null$11$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2, this.f$3, this.f$4, this.f$5, this.f$6, this.f$7, this.f$8, this.f$9, this.f$10, view);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$11$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDateViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view1) {
+            String day;
+            String month;
+            View view = popupViewEdit;
+            Button button = bDateViewEdit;
+            Button button2 = bMentOne;
+            Button button3 = bMentTwo;
+            Button button4 = bMentThree;
+            Button button5 = bPhysOne;
+            Button button6 = bPhysTwo;
+            Button button7 = bPhysThree;
+            view.findViewById(R.id.date_picker).setVisibility(8);
+            view.findViewById(R.id.date_set).setVisibility(8);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view, false);
+            button.setError((CharSequence) null);
+            DatePicker datePicker = (DatePicker) view.findViewById(R.id.date_picker);
+            if (datePicker.getDayOfMonth() < 10) {
+                day = "0" + datePicker.getDayOfMonth();
+            } else {
+                day = Integer.toString(datePicker.getDayOfMonth());
+            }
+            if (datePicker.getMonth() < 9) {
+                month = "0" + (datePicker.getMonth() + 1);
+            } else {
+                month = Integer.toString(datePicker.getMonth() + 1);
+            }
+            button.setText(day + "/" + month);
+            this.mMent = Integer.parseInt(mMentViewEdit.getText().toString());
+            this.mPhys = Integer.parseInt(mPhysViewEdit.getText().toString());
+            button2.setPressed(false);
+            button3.setPressed(false);
+            button4.setPressed(false);
+            int i = this.mMent;
+            if (i == 1) {
+                button2.setPressed(true);
+            } else if (i == 2) {
+                button3.setPressed(true);
+            } else if (i == 3) {
+                button4.setPressed(true);
+            }
+            button5.setPressed(false);
+            button6.setPressed(false);
+            button7.setPressed(false);
+            int i2 = this.mPhys;
+            if (i2 == 1) {
+                button5.setPressed(true);
+            } else if (i2 == 2) {
+                button6.setPressed(true);
+            } else if (i2 == 3) {
+                button7.setPressed(true);
+            }
+        }
+
+        public /* synthetic */ void lambda$null$14$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDateStartViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view) {
+            View view2 = popupViewEdit;
+            view2.findViewById(R.id.date_start_picker).setVisibility(0);
+            view2.findViewById(R.id.date_start_set).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view2, true);
+            ((Button) view2.findViewById(R.id.date_start_set)).setOnClickListener(new View.OnClickListener(popupViewEdit, bDateStartViewEdit, mMentViewEdit, mPhysViewEdit, bMentOne, bMentTwo, bMentThree, bPhysOne, bPhysTwo, bPhysThree) {
+                public final /* synthetic */ View f$1;
+                public final /* synthetic */ Button f$10;
+                public final /* synthetic */ Button f$2;
+                public final /* synthetic */ EditText f$3;
+                public final /* synthetic */ EditText f$4;
+                public final /* synthetic */ Button f$5;
+                public final /* synthetic */ Button f$6;
+                public final /* synthetic */ Button f$7;
+                public final /* synthetic */ Button f$8;
+                public final /* synthetic */ Button f$9;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                    this.f$4 = r5;
+                    this.f$5 = r6;
+                    this.f$6 = r7;
+                    this.f$7 = r8;
+                    this.f$8 = r9;
+                    this.f$9 = r10;
+                    this.f$10 = r11;
+                }
+
+                public final void onClick(View view) {
+                    MyOnLongClickListener.this.lambda$null$13$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2, this.f$3, this.f$4, this.f$5, this.f$6, this.f$7, this.f$8, this.f$9, this.f$10, view);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$13$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDateStartViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view1) {
+            String day;
+            String month;
+            View view = popupViewEdit;
+            Button button = bDateStartViewEdit;
+            Button button2 = bMentOne;
+            Button button3 = bMentTwo;
+            Button button4 = bMentThree;
+            Button button5 = bPhysOne;
+            Button button6 = bPhysTwo;
+            Button button7 = bPhysThree;
+            view.findViewById(R.id.date_start_picker).setVisibility(8);
+            view.findViewById(R.id.date_start_set).setVisibility(8);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view, false);
+            button.setError((CharSequence) null);
+            DatePicker DateStartPicker = (DatePicker) view.findViewById(R.id.date_start_picker);
+            if (DateStartPicker.getDayOfMonth() < 10) {
+                day = "0" + DateStartPicker.getDayOfMonth();
+            } else {
+                day = Integer.toString(DateStartPicker.getDayOfMonth());
+            }
+            if (DateStartPicker.getMonth() < 9) {
+                month = "0" + (DateStartPicker.getMonth() + 1);
+            } else {
+                month = Integer.toString(DateStartPicker.getMonth() + 1);
+            }
+            button.setText(day + "/" + month);
+            this.mMent = Integer.parseInt(mMentViewEdit.getText().toString());
+            this.mPhys = Integer.parseInt(mPhysViewEdit.getText().toString());
+            button2.setPressed(false);
+            button3.setPressed(false);
+            button4.setPressed(false);
+            int i = this.mMent;
+            if (i == 1) {
+                button2.setPressed(true);
+            } else if (i == 2) {
+                button3.setPressed(true);
+            } else if (i == 3) {
+                button4.setPressed(true);
+            }
+            button5.setPressed(false);
+            button6.setPressed(false);
+            button7.setPressed(false);
+            int i2 = this.mPhys;
+            if (i2 == 1) {
+                button5.setPressed(true);
+            } else if (i2 == 2) {
+                button6.setPressed(true);
+            } else if (i2 == 3) {
+                button7.setPressed(true);
+            }
+        }
+
+        public /* synthetic */ void lambda$null$16$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDateEndViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view) {
+            View view2 = popupViewEdit;
+            view2.findViewById(R.id.date_end_picker).setVisibility(0);
+            view2.findViewById(R.id.date_end_set).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view2, true);
+            ((Button) view2.findViewById(R.id.date_end_set)).setOnClickListener(new View.OnClickListener(popupViewEdit, bDateEndViewEdit, mMentViewEdit, mPhysViewEdit, bMentOne, bMentTwo, bMentThree, bPhysOne, bPhysTwo, bPhysThree) {
+                public final /* synthetic */ View f$1;
+                public final /* synthetic */ Button f$10;
+                public final /* synthetic */ Button f$2;
+                public final /* synthetic */ EditText f$3;
+                public final /* synthetic */ EditText f$4;
+                public final /* synthetic */ Button f$5;
+                public final /* synthetic */ Button f$6;
+                public final /* synthetic */ Button f$7;
+                public final /* synthetic */ Button f$8;
+                public final /* synthetic */ Button f$9;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                    this.f$4 = r5;
+                    this.f$5 = r6;
+                    this.f$6 = r7;
+                    this.f$7 = r8;
+                    this.f$8 = r9;
+                    this.f$9 = r10;
+                    this.f$10 = r11;
+                }
+
+                public final void onClick(View view) {
+                    MyOnLongClickListener.this.lambda$null$15$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2, this.f$3, this.f$4, this.f$5, this.f$6, this.f$7, this.f$8, this.f$9, this.f$10, view);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$15$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDateEndViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view1) {
+            String day;
+            String month;
+            View view = popupViewEdit;
+            Button button = bDateEndViewEdit;
+            Button button2 = bMentOne;
+            Button button3 = bMentTwo;
+            Button button4 = bMentThree;
+            Button button5 = bPhysOne;
+            Button button6 = bPhysTwo;
+            Button button7 = bPhysThree;
+            view.findViewById(R.id.date_end_picker).setVisibility(8);
+            view.findViewById(R.id.date_end_set).setVisibility(8);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view, false);
+            button.setError((CharSequence) null);
+            DatePicker DateEndPicker = (DatePicker) view.findViewById(R.id.date_end_picker);
+            if (DateEndPicker.getDayOfMonth() < 10) {
+                day = "0" + DateEndPicker.getDayOfMonth();
+            } else {
+                day = Integer.toString(DateEndPicker.getDayOfMonth());
+            }
+            if (DateEndPicker.getMonth() < 9) {
+                month = "0" + (DateEndPicker.getMonth() + 1);
+            } else {
+                month = Integer.toString(DateEndPicker.getMonth() + 1);
+            }
+            button.setText(day + "/" + month);
+            this.mMent = Integer.parseInt(mMentViewEdit.getText().toString());
+            this.mPhys = Integer.parseInt(mPhysViewEdit.getText().toString());
+            button2.setPressed(false);
+            button3.setPressed(false);
+            button4.setPressed(false);
+            int i = this.mMent;
+            if (i == 1) {
+                button2.setPressed(true);
+            } else if (i == 2) {
+                button3.setPressed(true);
+            } else if (i == 3) {
+                button4.setPressed(true);
+            }
+            button5.setPressed(false);
+            button6.setPressed(false);
+            button7.setPressed(false);
+            int i2 = this.mPhys;
+            if (i2 == 1) {
+                button5.setPressed(true);
+            } else if (i2 == 2) {
+                button6.setPressed(true);
+            } else if (i2 == 3) {
+                button7.setPressed(true);
+            }
+        }
+
+        public /* synthetic */ void lambda$null$18$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bTimeStartViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view) {
+            View view2 = popupViewEdit;
+            view2.findViewById(R.id.time_start_picker).setVisibility(0);
+            view2.findViewById(R.id.time_start_set).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view2, true);
+            ((Button) view2.findViewById(R.id.time_start_set)).setOnClickListener(new View.OnClickListener(popupViewEdit, bTimeStartViewEdit, mMentViewEdit, mPhysViewEdit, bMentOne, bMentTwo, bMentThree, bPhysOne, bPhysTwo, bPhysThree) {
+                public final /* synthetic */ View f$1;
+                public final /* synthetic */ Button f$10;
+                public final /* synthetic */ Button f$2;
+                public final /* synthetic */ EditText f$3;
+                public final /* synthetic */ EditText f$4;
+                public final /* synthetic */ Button f$5;
+                public final /* synthetic */ Button f$6;
+                public final /* synthetic */ Button f$7;
+                public final /* synthetic */ Button f$8;
+                public final /* synthetic */ Button f$9;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                    this.f$4 = r5;
+                    this.f$5 = r6;
+                    this.f$6 = r7;
+                    this.f$7 = r8;
+                    this.f$8 = r9;
+                    this.f$9 = r10;
+                    this.f$10 = r11;
+                }
+
+                public final void onClick(View view) {
+                    MyOnLongClickListener.this.lambda$null$17$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2, this.f$3, this.f$4, this.f$5, this.f$6, this.f$7, this.f$8, this.f$9, this.f$10, view);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$17$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bTimeStartViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view12) {
+            String minutes;
+            String hours;
+            View view = popupViewEdit;
+            Button button = bTimeStartViewEdit;
+            Button button2 = bMentOne;
+            Button button3 = bMentTwo;
+            Button button4 = bMentThree;
+            Button button5 = bPhysOne;
+            Button button6 = bPhysTwo;
+            Button button7 = bPhysThree;
+            view.findViewById(R.id.time_start_picker).setVisibility(8);
+            view.findViewById(R.id.time_start_set).setVisibility(8);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view, false);
+            button.setError((CharSequence) null);
+            TimePicker timePicker = (TimePicker) view.findViewById(R.id.time_start_picker);
+            if (timePicker.getCurrentMinute().intValue() < 10) {
+                minutes = "0" + timePicker.getCurrentMinute();
+            } else {
+                minutes = Integer.toString(timePicker.getCurrentMinute().intValue());
+            }
+            if (timePicker.getCurrentHour().intValue() < 10) {
+                hours = "0" + timePicker.getCurrentHour();
+            } else {
+                hours = Integer.toString(timePicker.getCurrentHour().intValue());
+            }
+            button.setText(hours + ":" + minutes);
+            this.mMent = Integer.parseInt(mMentViewEdit.getText().toString());
+            this.mPhys = Integer.parseInt(mPhysViewEdit.getText().toString());
+            button2.setPressed(false);
+            button3.setPressed(false);
+            button4.setPressed(false);
+            int i = this.mMent;
+            if (i == 1) {
+                button2.setPressed(true);
+            } else if (i == 2) {
+                button3.setPressed(true);
+            } else if (i == 3) {
+                button4.setPressed(true);
+            }
+            button5.setPressed(false);
+            button6.setPressed(false);
+            button7.setPressed(false);
+            int i2 = this.mPhys;
+            if (i2 == 1) {
+                button5.setPressed(true);
+            } else if (i2 == 2) {
+                button6.setPressed(true);
+            } else if (i2 == 3) {
+                button7.setPressed(true);
+            }
+        }
+
+        public /* synthetic */ void lambda$null$20$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bTimeEndViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view) {
+            View view2 = popupViewEdit;
+            view2.findViewById(R.id.time_end_picker).setVisibility(0);
+            view2.findViewById(R.id.time_end_set).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view2, true);
+            ((Button) view2.findViewById(R.id.time_end_set)).setOnClickListener(new View.OnClickListener(popupViewEdit, bTimeEndViewEdit, mMentViewEdit, mPhysViewEdit, bMentOne, bMentTwo, bMentThree, bPhysOne, bPhysTwo, bPhysThree) {
+                public final /* synthetic */ View f$1;
+                public final /* synthetic */ Button f$10;
+                public final /* synthetic */ Button f$2;
+                public final /* synthetic */ EditText f$3;
+                public final /* synthetic */ EditText f$4;
+                public final /* synthetic */ Button f$5;
+                public final /* synthetic */ Button f$6;
+                public final /* synthetic */ Button f$7;
+                public final /* synthetic */ Button f$8;
+                public final /* synthetic */ Button f$9;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                    this.f$4 = r5;
+                    this.f$5 = r6;
+                    this.f$6 = r7;
+                    this.f$7 = r8;
+                    this.f$8 = r9;
+                    this.f$9 = r10;
+                    this.f$10 = r11;
+                }
+
+                public final void onClick(View view) {
+                    MyOnLongClickListener.this.lambda$null$19$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2, this.f$3, this.f$4, this.f$5, this.f$6, this.f$7, this.f$8, this.f$9, this.f$10, view);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$19$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bTimeEndViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view13) {
+            String minutes;
+            String hours;
+            View view = popupViewEdit;
+            Button button = bTimeEndViewEdit;
+            Button button2 = bMentOne;
+            Button button3 = bMentTwo;
+            Button button4 = bMentThree;
+            Button button5 = bPhysOne;
+            Button button6 = bPhysTwo;
+            Button button7 = bPhysThree;
+            view.findViewById(R.id.time_end_picker).setVisibility(8);
+            view.findViewById(R.id.time_end_set).setVisibility(8);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view, false);
+            button.setError((CharSequence) null);
+            TimePicker timePicker = (TimePicker) view.findViewById(R.id.time_end_picker);
+            if (timePicker.getCurrentMinute().intValue() < 10) {
+                minutes = "0" + timePicker.getCurrentMinute();
+            } else {
+                minutes = Integer.toString(timePicker.getCurrentMinute().intValue());
+            }
+            if (timePicker.getCurrentHour().intValue() < 10) {
+                hours = "0" + timePicker.getCurrentHour();
+            } else {
+                hours = Integer.toString(timePicker.getCurrentHour().intValue());
+            }
+            button.setText(hours + ":" + minutes);
+            this.mMent = Integer.parseInt(mMentViewEdit.getText().toString());
+            this.mPhys = Integer.parseInt(mPhysViewEdit.getText().toString());
+            button2.setPressed(false);
+            button3.setPressed(false);
+            button4.setPressed(false);
+            int i = this.mMent;
+            if (i == 1) {
+                button2.setPressed(true);
+            } else if (i == 2) {
+                button3.setPressed(true);
+            } else if (i == 3) {
+                button4.setPressed(true);
+            }
+            button5.setPressed(false);
+            button6.setPressed(false);
+            button7.setPressed(false);
+            int i2 = this.mPhys;
+            if (i2 == 1) {
+                button5.setPressed(true);
+            } else if (i2 == 2) {
+                button6.setPressed(true);
+            } else if (i2 == 3) {
+                button7.setPressed(true);
+            }
+        }
+
+        public /* synthetic */ void lambda$null$22$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDDateViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view) {
+            View view2 = popupViewEdit;
+            view2.findViewById(R.id.ddate_picker).setVisibility(0);
+            view2.findViewById(R.id.ddate_set).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view2, true);
+            ((Button) view2.findViewById(R.id.ddate_set)).setOnClickListener(new View.OnClickListener(popupViewEdit, bDDateViewEdit, mMentViewEdit, mPhysViewEdit, bMentOne, bMentTwo, bMentThree, bPhysOne, bPhysTwo, bPhysThree) {
+                public final /* synthetic */ View f$1;
+                public final /* synthetic */ Button f$10;
+                public final /* synthetic */ Button f$2;
+                public final /* synthetic */ EditText f$3;
+                public final /* synthetic */ EditText f$4;
+                public final /* synthetic */ Button f$5;
+                public final /* synthetic */ Button f$6;
+                public final /* synthetic */ Button f$7;
+                public final /* synthetic */ Button f$8;
+                public final /* synthetic */ Button f$9;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                    this.f$4 = r5;
+                    this.f$5 = r6;
+                    this.f$6 = r7;
+                    this.f$7 = r8;
+                    this.f$8 = r9;
+                    this.f$9 = r10;
+                    this.f$10 = r11;
+                }
+
+                public final void onClick(View view) {
+                    MyOnLongClickListener.this.lambda$null$21$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2, this.f$3, this.f$4, this.f$5, this.f$6, this.f$7, this.f$8, this.f$9, this.f$10, view);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$21$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDDateViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view1) {
+            String day;
+            String month;
+            View view = popupViewEdit;
+            Button button = bDDateViewEdit;
+            Button button2 = bMentOne;
+            Button button3 = bMentTwo;
+            Button button4 = bMentThree;
+            Button button5 = bPhysOne;
+            Button button6 = bPhysTwo;
+            Button button7 = bPhysThree;
+            view.findViewById(R.id.ddate_picker).setVisibility(8);
+            view.findViewById(R.id.ddate_set).setVisibility(8);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view, false);
+            button.setError((CharSequence) null);
+            DatePicker DDatePicker = (DatePicker) view.findViewById(R.id.ddate_picker);
+            if (DDatePicker.getDayOfMonth() < 10) {
+                day = "0" + DDatePicker.getDayOfMonth();
+            } else {
+                day = Integer.toString(DDatePicker.getDayOfMonth());
+            }
+            if (DDatePicker.getMonth() < 9) {
+                month = "0" + (DDatePicker.getMonth() + 1);
+            } else {
+                month = Integer.toString(DDatePicker.getMonth() + 1);
+            }
+            button.setText(day + "/" + month);
+            this.mMent = Integer.parseInt(mMentViewEdit.getText().toString());
+            this.mPhys = Integer.parseInt(mPhysViewEdit.getText().toString());
+            button2.setPressed(false);
+            button3.setPressed(false);
+            button4.setPressed(false);
+            int i = this.mMent;
+            if (i == 1) {
+                button2.setPressed(true);
+            } else if (i == 2) {
+                button3.setPressed(true);
+            } else if (i == 3) {
+                button4.setPressed(true);
+            }
+            button5.setPressed(false);
+            button6.setPressed(false);
+            button7.setPressed(false);
+            int i2 = this.mPhys;
+            if (i2 == 1) {
+                button5.setPressed(true);
+            } else if (i2 == 2) {
+                button6.setPressed(true);
+            } else if (i2 == 3) {
+                button7.setPressed(true);
+            }
+        }
+
+        public /* synthetic */ void lambda$null$24$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDTimeViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view) {
+            View view2 = popupViewEdit;
+            view2.findViewById(R.id.dtime_picker).setVisibility(0);
+            view2.findViewById(R.id.dtime_set).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view2, true);
+            ((Button) view2.findViewById(R.id.dtime_set)).setOnClickListener(new View.OnClickListener(popupViewEdit, bDTimeViewEdit, mMentViewEdit, mPhysViewEdit, bMentOne, bMentTwo, bMentThree, bPhysOne, bPhysTwo, bPhysThree) {
+                public final /* synthetic */ View f$1;
+                public final /* synthetic */ Button f$10;
+                public final /* synthetic */ Button f$2;
+                public final /* synthetic */ EditText f$3;
+                public final /* synthetic */ EditText f$4;
+                public final /* synthetic */ Button f$5;
+                public final /* synthetic */ Button f$6;
+                public final /* synthetic */ Button f$7;
+                public final /* synthetic */ Button f$8;
+                public final /* synthetic */ Button f$9;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                    this.f$3 = r4;
+                    this.f$4 = r5;
+                    this.f$5 = r6;
+                    this.f$6 = r7;
+                    this.f$7 = r8;
+                    this.f$8 = r9;
+                    this.f$9 = r10;
+                    this.f$10 = r11;
+                }
+
+                public final void onClick(View view) {
+                    MyOnLongClickListener.this.lambda$null$23$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2, this.f$3, this.f$4, this.f$5, this.f$6, this.f$7, this.f$8, this.f$9, this.f$10, view);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$23$Task_Adapter$MyOnLongClickListener(View popupViewEdit, Button bDTimeViewEdit, EditText mMentViewEdit, EditText mPhysViewEdit, Button bMentOne, Button bMentTwo, Button bMentThree, Button bPhysOne, Button bPhysTwo, Button bPhysThree, View view12) {
+            String minutes;
+            String hours;
+            View view = popupViewEdit;
+            Button button = bDTimeViewEdit;
+            Button button2 = bMentOne;
+            Button button3 = bMentTwo;
+            Button button4 = bMentThree;
+            Button button5 = bPhysOne;
+            Button button6 = bPhysTwo;
+            Button button7 = bPhysThree;
+            view.findViewById(R.id.dtime_picker).setVisibility(8);
+            view.findViewById(R.id.dtime_set).setVisibility(8);
+            Task_Adapter.this.mMethodTransfer.show_hide_edit_ui(Task_Adapter.this.typeid, view, false);
+            button.setError((CharSequence) null);
+            TimePicker DTimePicker = (TimePicker) view.findViewById(R.id.dtime_picker);
+            if (DTimePicker.getCurrentMinute().intValue() < 10) {
+                minutes = "0" + DTimePicker.getCurrentMinute();
+            } else {
+                minutes = Integer.toString(DTimePicker.getCurrentMinute().intValue());
+            }
+            if (DTimePicker.getCurrentHour().intValue() < 10) {
+                hours = "0" + DTimePicker.getCurrentHour();
+            } else {
+                hours = Integer.toString(DTimePicker.getCurrentHour().intValue());
+            }
+            button.setText(hours + ":" + minutes);
+            this.mMent = Integer.parseInt(mMentViewEdit.getText().toString());
+            this.mPhys = Integer.parseInt(mPhysViewEdit.getText().toString());
+            button2.setPressed(false);
+            button3.setPressed(false);
+            button4.setPressed(false);
+            int i = this.mMent;
+            if (i == 1) {
+                button2.setPressed(true);
+            } else if (i == 2) {
+                button3.setPressed(true);
+            } else if (i == 3) {
+                button4.setPressed(true);
+            }
+            button5.setPressed(false);
+            button6.setPressed(false);
+            button7.setPressed(false);
+            int i2 = this.mPhys;
+            if (i2 == 1) {
+                button5.setPressed(true);
+            } else if (i2 == 2) {
+                button6.setPressed(true);
+            } else if (i2 == 3) {
+                button7.setPressed(true);
+            }
+        }
+
+        public /* synthetic */ void lambda$null$27$Task_Adapter$MyOnLongClickListener(EditText r47, EditText r48, Button r49, Button r50, Button r51, EditText r52, EditText r53, EditText r54, Button r55, Button r56, EditText r57, EditText r58, Button r59, Button r60, EditText r61, EditText r62, EditText r63, EditText r64, View r65, EditText r66, PopupWindow r67, View r68) {
+            /*
+                r46 = this;
+                r0 = r46
+                r1 = r47
+                r2 = r48
+                r3 = r50
+                r4 = r51
+                r5 = r52
+                r6 = r53
+                r7 = r56
+                r8 = r64
+                r9 = r65
+                r10 = 0
+                r11 = 0
+                r12 = 0
+                r13 = 0
+                r14 = 0
+                r15 = 0
+                r16 = 0
+                r17 = 0
+                r18 = 0
+                r19 = 0
+                r20 = 0
+                r21 = 0
+                r22 = 0
+                r23 = 0
+                r24 = r10
+                com.example.myapplication.Task_Adapter r10 = com.example.myapplication.Task_Adapter.this
+                int r10 = r10.typeid
+                r25 = r11
+                java.lang.String r11 = "phys"
+                r26 = r12
+                java.lang.String r12 = "ment"
+                r27 = r13
+                java.lang.String r13 = "date"
+                r28 = r14
+                java.lang.String r14 = "place"
+                r29 = r15
+                java.lang.String r15 = "name"
+                java.lang.String r9 = "time"
+                r4 = 0
+                switch(r10) {
+                    case 1: goto L_0x01ef;
+                    case 2: goto L_0x0162;
+                    case 3: goto L_0x00de;
+                    case 4: goto L_0x005a;
+                    case 5: goto L_0x005a;
+                    case 6: goto L_0x005a;
+                    default: goto L_0x004a;
+                }
+            L_0x004a:
+                r14 = r49
+                r15 = r2
+                r4 = 1
+                r2 = r51
+                r10 = r24
+                r11 = r25
+                r12 = r26
+                r13 = r27
+                goto L_0x0256
+            L_0x005a:
+                com.example.myapplication.Task_Adapter r9 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r9 = r9.mMethodTransfer
+                boolean r10 = r9.param_valid(r15, r1, r4)
+                com.example.myapplication.Task_Adapter r9 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r9 = r9.mMethodTransfer
+                boolean r9 = r9.param_valid(r14, r2, r4)
+                com.example.myapplication.Task_Adapter r13 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r13 = r13.mMethodTransfer
+                java.lang.String r14 = "cooldown"
+                r15 = r61
+                boolean r13 = r13.param_valid(r14, r15, r4)
+                com.example.myapplication.Task_Adapter r14 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r14 = r14.mMethodTransfer
+                java.lang.String r15 = "max_ignore"
+                r3 = r62
+                boolean r14 = r14.param_valid(r15, r3, r4)
+                com.example.myapplication.Task_Adapter r15 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r15 = r15.mMethodTransfer
+                java.lang.String r3 = "min_dur"
+                r7 = r63
+                boolean r3 = r15.param_valid(r3, r7, r4)
+                com.example.myapplication.Task_Adapter r15 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r15 = r15.mMethodTransfer
+                java.lang.String r7 = "max_dur"
+                boolean r15 = r15.param_valid(r7, r8, r4)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                boolean r16 = r7.param_valid(r12, r5, r4)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                boolean r17 = r7.param_valid(r11, r6, r4)
+                if (r10 == 0) goto L_0x00ca
+                if (r9 == 0) goto L_0x00ca
+                if (r13 == 0) goto L_0x00ca
+                if (r14 == 0) goto L_0x00ca
+                if (r3 == 0) goto L_0x00ca
+                if (r15 == 0) goto L_0x00ca
+                if (r16 == 0) goto L_0x00ca
+                if (r17 == 0) goto L_0x00ca
+                r7 = 1
+                goto L_0x00cb
+            L_0x00ca:
+                r7 = 0
+            L_0x00cb:
+                r23 = r7
+                r28 = r3
+                r11 = r9
+                r12 = r13
+                r13 = r14
+                r29 = r15
+                r4 = 1
+                r14 = r49
+                r3 = r50
+                r15 = r2
+                r2 = r51
+                goto L_0x0256
+            L_0x00de:
+                com.example.myapplication.Task_Adapter r3 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r3 = r3.mMethodTransfer
+                boolean r10 = r3.param_valid(r15, r1, r4)
+                com.example.myapplication.Task_Adapter r3 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r3 = r3.mMethodTransfer
+                boolean r3 = r3.param_valid(r14, r2, r4)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                java.lang.String r14 = "total_dur"
+                r15 = r57
+                boolean r7 = r7.param_valid(r14, r15, r4)
+                com.example.myapplication.Task_Adapter r14 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r14 = r14.mMethodTransfer
+                java.lang.String r15 = "part_dur"
+                r8 = r58
+                boolean r14 = r14.param_valid(r15, r8, r4)
+                com.example.myapplication.Task_Adapter r15 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r15 = r15.mMethodTransfer
+                r4 = r59
+                r8 = 1
+                boolean r13 = r15.param_valid(r13, r4, r8)
+                com.example.myapplication.Task_Adapter r15 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r15 = r15.mMethodTransfer
+                r4 = r60
+                boolean r15 = r15.param_valid(r9, r4, r8)
+                com.example.myapplication.Task_Adapter r8 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r8 = r8.mMethodTransfer
+                r9 = 0
+                boolean r16 = r8.param_valid(r12, r5, r9)
+                com.example.myapplication.Task_Adapter r8 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r8 = r8.mMethodTransfer
+                boolean r17 = r8.param_valid(r11, r6, r9)
+                if (r10 == 0) goto L_0x014e
+                if (r3 == 0) goto L_0x014e
+                if (r7 == 0) goto L_0x014e
+                if (r14 == 0) goto L_0x014e
+                if (r13 == 0) goto L_0x014e
+                if (r15 == 0) goto L_0x014e
+                if (r16 == 0) goto L_0x014e
+                if (r17 == 0) goto L_0x014e
+                r8 = 1
+                goto L_0x014f
+            L_0x014e:
+                r8 = 0
+            L_0x014f:
+                r23 = r8
+                r11 = r3
+                r12 = r7
+                r28 = r13
+                r13 = r14
+                r29 = r15
+                r4 = 1
+                r14 = r49
+                r3 = r50
+                r15 = r2
+                r2 = r51
+                goto L_0x0256
+            L_0x0162:
+                r4 = r60
+                com.example.myapplication.Task_Adapter r3 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r3 = r3.mMethodTransfer
+                r7 = 0
+                boolean r10 = r3.param_valid(r15, r1, r7)
+                com.example.myapplication.Task_Adapter r3 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r3 = r3.mMethodTransfer
+                boolean r3 = r3.param_valid(r14, r2, r7)
+                com.example.myapplication.Task_Adapter r8 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r8 = r8.mMethodTransfer
+                java.lang.String r14 = "cycle"
+                r15 = r54
+                boolean r8 = r8.param_valid(r14, r15, r7)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                r14 = r55
+                r4 = 1
+                boolean r21 = r7.param_valid(r13, r14, r4)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                r2 = r56
+                boolean r22 = r7.param_valid(r13, r2, r4)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                r13 = r50
+                boolean r19 = r7.param_valid(r9, r13, r4)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                r2 = r51
+                boolean r20 = r7.param_valid(r9, r2, r4)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                r9 = 0
+                boolean r7 = r7.param_valid(r12, r5, r9)
+                com.example.myapplication.Task_Adapter r12 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r12 = r12.mMethodTransfer
+                boolean r11 = r12.param_valid(r11, r6, r9)
+                if (r10 == 0) goto L_0x01e1
+                if (r3 == 0) goto L_0x01e1
+                if (r8 == 0) goto L_0x01e1
+                if (r7 == 0) goto L_0x01e1
+                if (r11 == 0) goto L_0x01e1
+                if (r21 == 0) goto L_0x01e1
+                if (r22 == 0) goto L_0x01e1
+                if (r19 == 0) goto L_0x01e1
+                if (r20 == 0) goto L_0x01e1
+                r9 = 1
+                goto L_0x01e2
+            L_0x01e1:
+                r9 = 0
+            L_0x01e2:
+                r23 = r9
+                r15 = r48
+                r14 = r49
+                r12 = r8
+                r28 = r11
+                r11 = r3
+                r3 = r13
+                r13 = r7
+                goto L_0x0256
+            L_0x01ef:
+                r2 = r51
+                r4 = 1
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                r8 = 0
+                boolean r10 = r7.param_valid(r15, r1, r8)
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r7 = r7.mMethodTransfer
+                r15 = r48
+                boolean r7 = r7.param_valid(r14, r15, r8)
+                com.example.myapplication.Task_Adapter r8 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r8 = r8.mMethodTransfer
+                r14 = r49
+                boolean r8 = r8.param_valid(r13, r14, r4)
+                com.example.myapplication.Task_Adapter r13 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r13 = r13.mMethodTransfer
+                boolean r19 = r13.param_valid(r9, r3, r4)
+                com.example.myapplication.Task_Adapter r13 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r13 = r13.mMethodTransfer
+                boolean r20 = r13.param_valid(r9, r2, r4)
+                com.example.myapplication.Task_Adapter r9 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r9 = r9.mMethodTransfer
+                r13 = 0
+                boolean r9 = r9.param_valid(r12, r5, r13)
+                com.example.myapplication.Task_Adapter r12 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r12 = r12.mMethodTransfer
+                boolean r11 = r12.param_valid(r11, r6, r13)
+                if (r10 == 0) goto L_0x024e
+                if (r7 == 0) goto L_0x024e
+                if (r8 == 0) goto L_0x024e
+                if (r19 == 0) goto L_0x024e
+                if (r20 == 0) goto L_0x024e
+                if (r9 == 0) goto L_0x024e
+                if (r11 == 0) goto L_0x024e
+                r12 = 1
+                goto L_0x024f
+            L_0x024e:
+                r12 = 0
+            L_0x024f:
+                r23 = r12
+                r12 = r8
+                r13 = r9
+                r28 = r11
+                r11 = r7
+            L_0x0256:
+                com.example.myapplication.Task_Adapter r7 = com.example.myapplication.Task_Adapter.this
+                int r7 = r7.typeid
+                r9 = 2
+                if (r7 == r4) goto L_0x0263
+                com.example.myapplication.Task_Adapter r4 = com.example.myapplication.Task_Adapter.this
+                int r4 = r4.typeid
+                if (r4 != r9) goto L_0x02bb
+            L_0x0263:
+                if (r19 == 0) goto L_0x02b4
+                if (r20 == 0) goto L_0x02b4
+                java.lang.CharSequence r4 = r50.getText()
+                java.lang.String r4 = r4.toString()
+                r7 = 0
+                java.lang.String r4 = r4.substring(r7, r9)
+                int r4 = java.lang.Integer.parseInt(r4)
+                java.lang.CharSequence r24 = r51.getText()
+                java.lang.String r8 = r24.toString()
+                java.lang.String r8 = r8.substring(r7, r9)
+                int r7 = java.lang.Integer.parseInt(r8)
+                java.lang.CharSequence r8 = r50.getText()
+                java.lang.String r8 = r8.toString()
+                r9 = 3
+                java.lang.String r8 = r8.substring(r9)
+                int r8 = java.lang.Integer.parseInt(r8)
+                java.lang.CharSequence r25 = r51.getText()
+                java.lang.String r1 = r25.toString()
+                java.lang.String r1 = r1.substring(r9)
+                int r1 = java.lang.Integer.parseInt(r1)
+                if (r4 <= r7) goto L_0x02ae
+                r23 = 0
+                goto L_0x02b4
+            L_0x02ae:
+                if (r4 != r7) goto L_0x02b4
+                if (r8 < r1) goto L_0x02b4
+                r23 = 0
+            L_0x02b4:
+                if (r23 != 0) goto L_0x02bb
+                java.lang.String r1 = "End Time has to be after Start Time"
+                r2.setError(r1)
+            L_0x02bb:
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                int r1 = r1.typeid
+                r4 = 2
+                if (r1 != r4) goto L_0x0324
+                if (r13 == 0) goto L_0x0316
+                if (r28 == 0) goto L_0x0316
+                java.lang.CharSequence r1 = r55.getText()
+                java.lang.String r1 = r1.toString()
+                r4 = 3
+                java.lang.String r1 = r1.substring(r4)
+                int r1 = java.lang.Integer.parseInt(r1)
+                java.lang.CharSequence r7 = r56.getText()
+                java.lang.String r7 = r7.toString()
+                java.lang.String r7 = r7.substring(r4)
+                int r4 = java.lang.Integer.parseInt(r7)
+                java.lang.CharSequence r7 = r55.getText()
+                java.lang.String r7 = r7.toString()
+                r8 = 2
+                r9 = 0
+                java.lang.String r7 = r7.substring(r9, r8)
+                int r7 = java.lang.Integer.parseInt(r7)
+                java.lang.CharSequence r24 = r56.getText()
+                java.lang.String r2 = r24.toString()
+                java.lang.String r2 = r2.substring(r9, r8)
+                int r2 = java.lang.Integer.parseInt(r2)
+                if (r1 <= r4) goto L_0x030f
+                r8 = 0
+                r23 = r8
+                goto L_0x0316
+            L_0x030f:
+                if (r1 != r4) goto L_0x0316
+                if (r7 < r2) goto L_0x0316
+                r8 = 0
+                r23 = r8
+            L_0x0316:
+                if (r23 != 0) goto L_0x0321
+                java.lang.String r1 = "End Date has to be after Start Date"
+                r2 = r56
+                r2.setError(r1)
+                goto L_0x0326
+            L_0x0321:
+                r2 = r56
+                goto L_0x0326
+            L_0x0324:
+                r2 = r56
+            L_0x0326:
+                com.example.myapplication.Task_Adapter r1 = com.example.myapplication.Task_Adapter.this
+                int r1 = r1.typeid
+                r4 = 3
+                if (r1 <= r4) goto L_0x0354
+                android.text.Editable r1 = r63.getText()
+                java.lang.String r1 = r1.toString()
+                int r1 = java.lang.Integer.parseInt(r1)
+                android.text.Editable r4 = r64.getText()
+                java.lang.String r4 = r4.toString()
+                int r4 = java.lang.Integer.parseInt(r4)
+                if (r1 < r4) goto L_0x0351
+                java.lang.String r1 = "Max. dur has to bigger than min. dur"
+                r4 = r64
+                r4.setError(r1)
+                r23 = 0
+                goto L_0x0356
+            L_0x0351:
+                r4 = r64
+                goto L_0x0356
+            L_0x0354:
+                r4 = r64
+            L_0x0356:
+                if (r23 == 0) goto L_0x0550
+                r1 = 2131230913(0x7f0800c1, float:1.8077892E38)
+                r7 = r65
+                android.view.View r1 = r7.findViewById(r1)
+                r8 = 0
+                r1.setVisibility(r8)
+                r1 = 0
+                com.example.myapplication.Task_Adapter r8 = com.example.myapplication.Task_Adapter.this
+                int r8 = r8.typeid
+                switch(r8) {
+                    case 1: goto L_0x04dd;
+                    case 2: goto L_0x0466;
+                    case 3: goto L_0x03f4;
+                    case 4: goto L_0x0371;
+                    case 5: goto L_0x0371;
+                    case 6: goto L_0x0371;
+                    default: goto L_0x036d;
+                }
+            L_0x036d:
+                r45 = r1
+                goto L_0x053b
+            L_0x0371:
+                android.text.Editable r8 = r47.getText()
+                java.lang.String r8 = r8.toString()
+                android.text.Editable r9 = r48.getText()
+                java.lang.String r9 = r9.toString()
+                android.text.Editable r24 = r61.getText()
+                java.lang.String r24 = r24.toString()
+                int r24 = java.lang.Integer.parseInt(r24)
+                android.text.Editable r25 = r62.getText()
+                java.lang.String r25 = r25.toString()
+                int r25 = java.lang.Integer.parseInt(r25)
+                android.text.Editable r26 = r66.getText()
+                java.lang.String r26 = r26.toString()
+                android.text.Editable r27 = r63.getText()
+                java.lang.String r27 = r27.toString()
+                int r27 = java.lang.Integer.parseInt(r27)
+                android.text.Editable r30 = r64.getText()
+                java.lang.String r30 = r30.toString()
+                int r41 = java.lang.Integer.parseInt(r30)
+                android.text.Editable r30 = r52.getText()
+                java.lang.String r30 = r30.toString()
+                int r42 = java.lang.Integer.parseInt(r30)
+                android.text.Editable r30 = r53.getText()
+                java.lang.String r30 = r30.toString()
+                int r43 = java.lang.Integer.parseInt(r30)
+                com.example.myapplication.TaskClass456 r44 = new com.example.myapplication.TaskClass456
+                r45 = r1
+                int r1 = r0.mID
+                r30 = r44
+                r31 = r1
+                r32 = r8
+                r33 = r9
+                r34 = r24
+                r35 = r25
+                r36 = r26
+                r37 = r27
+                r38 = r41
+                r39 = r42
+                r40 = r43
+                r30.<init>(r31, r32, r33, r34, r35, r36, r37, r38, r39, r40)
+                r1 = r44
+                goto L_0x053b
+            L_0x03f4:
+                r45 = r1
+                android.text.Editable r1 = r47.getText()
+                java.lang.String r1 = r1.toString()
+                android.text.Editable r8 = r48.getText()
+                java.lang.String r8 = r8.toString()
+                android.text.Editable r9 = r57.getText()
+                java.lang.String r9 = r9.toString()
+                int r9 = java.lang.Integer.parseInt(r9)
+                android.text.Editable r24 = r57.getText()
+                java.lang.String r24 = r24.toString()
+                int r24 = java.lang.Integer.parseInt(r24)
+                java.lang.CharSequence r25 = r59.getText()
+                java.lang.String r25 = r25.toString()
+                java.lang.CharSequence r26 = r60.getText()
+                java.lang.String r26 = r26.toString()
+                android.text.Editable r27 = r52.getText()
+                java.lang.String r27 = r27.toString()
+                int r27 = java.lang.Integer.parseInt(r27)
+                android.text.Editable r30 = r53.getText()
+                java.lang.String r30 = r30.toString()
+                int r40 = java.lang.Integer.parseInt(r30)
+                com.example.myapplication.TaskClass3 r41 = new com.example.myapplication.TaskClass3
+                int r2 = r0.mID
+                r30 = r41
+                r31 = r2
+                r32 = r1
+                r33 = r8
+                r34 = r25
+                r35 = r26
+                r36 = r9
+                r37 = r24
+                r38 = r27
+                r39 = r40
+                r30.<init>(r31, r32, r33, r34, r35, r36, r37, r38, r39)
+                r2 = r41
+                r1 = r2
+                goto L_0x053b
+            L_0x0466:
+                r45 = r1
+                android.text.Editable r1 = r47.getText()
+                java.lang.String r1 = r1.toString()
+                android.text.Editable r2 = r48.getText()
+                java.lang.String r2 = r2.toString()
+                android.text.Editable r8 = r54.getText()
+                java.lang.String r8 = r8.toString()
+                int r8 = java.lang.Integer.parseInt(r8)
+                java.lang.CharSequence r9 = r55.getText()
+                java.lang.String r9 = r9.toString()
+                java.lang.CharSequence r24 = r56.getText()
+                java.lang.String r24 = r24.toString()
+                java.lang.CharSequence r25 = r50.getText()
+                java.lang.String r25 = r25.toString()
+                java.lang.CharSequence r26 = r51.getText()
+                java.lang.String r26 = r26.toString()
+                android.text.Editable r27 = r52.getText()
+                java.lang.String r27 = r27.toString()
+                int r27 = java.lang.Integer.parseInt(r27)
+                android.text.Editable r30 = r53.getText()
+                java.lang.String r30 = r30.toString()
+                int r41 = java.lang.Integer.parseInt(r30)
+                com.example.myapplication.TaskClass2 r42 = new com.example.myapplication.TaskClass2
+                int r3 = r0.mID
+                r30 = r42
+                r31 = r3
+                r32 = r1
+                r33 = r2
+                r34 = r8
+                r35 = r9
+                r36 = r24
+                r37 = r25
+                r38 = r26
+                r39 = r27
+                r40 = r41
+                r30.<init>(r31, r32, r33, r34, r35, r36, r37, r38, r39, r40)
+                r3 = r42
+                r1 = r3
+                goto L_0x053b
+            L_0x04dd:
+                r45 = r1
+                android.text.Editable r1 = r47.getText()
+                java.lang.String r1 = r1.toString()
+                android.text.Editable r2 = r48.getText()
+                java.lang.String r2 = r2.toString()
+                java.lang.CharSequence r3 = r49.getText()
+                java.lang.String r3 = r3.toString()
+                java.lang.CharSequence r8 = r50.getText()
+                java.lang.String r8 = r8.toString()
+                java.lang.CharSequence r9 = r51.getText()
+                java.lang.String r9 = r9.toString()
+                android.text.Editable r24 = r52.getText()
+                java.lang.String r24 = r24.toString()
+                int r24 = java.lang.Integer.parseInt(r24)
+                android.text.Editable r25 = r53.getText()
+                java.lang.String r25 = r25.toString()
+                int r25 = java.lang.Integer.parseInt(r25)
+                com.example.myapplication.TaskClass1 r26 = new com.example.myapplication.TaskClass1
+                int r4 = r0.mID
+                r30 = r26
+                r31 = r4
+                r32 = r1
+                r33 = r2
+                r34 = r3
+                r35 = r8
+                r36 = r9
+                r37 = r24
+                r38 = r25
+                r30.<init>(r31, r32, r33, r34, r35, r36, r37, r38)
+                r4 = r26
+                r1 = r4
+            L_0x053b:
+                com.example.myapplication.Task_Adapter r2 = com.example.myapplication.Task_Adapter.this
+                com.example.myapplication.MethodTransfer r2 = r2.mMethodTransfer
+                com.example.myapplication.Task_Adapter r3 = com.example.myapplication.Task_Adapter.this
+                int r3 = r3.typeid
+                com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$C1R7LZHXQEKCDzAXDDDn2r1Q2ew r4 = new com.example.myapplication.-$$Lambda$Task_Adapter$MyOnLongClickListener$C1R7LZHXQEKCDzAXDDDn2r1Q2ew
+                r8 = r67
+                r4.<init>(r8, r7)
+                r2.edit_task(r3, r1, r4)
+                goto L_0x0554
+            L_0x0550:
+                r7 = r65
+                r8 = r67
+            L_0x0554:
+                return
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.example.myapplication.Task_Adapter.MyOnLongClickListener.lambda$null$27$Task_Adapter$MyOnLongClickListener(android.widget.EditText, android.widget.EditText, android.widget.Button, android.widget.Button, android.widget.Button, android.widget.EditText, android.widget.EditText, android.widget.EditText, android.widget.Button, android.widget.Button, android.widget.EditText, android.widget.EditText, android.widget.Button, android.widget.Button, android.widget.EditText, android.widget.EditText, android.widget.EditText, android.widget.EditText, android.view.View, android.widget.EditText, android.widget.PopupWindow, android.view.View):void");
+        }
+
+        public /* synthetic */ void lambda$null$26$Task_Adapter$MyOnLongClickListener(PopupWindow popupWindowEdit, View popupViewEdit) {
+            popupWindowEdit.dismiss();
+            Task_Adapter.this.mMethodTransfer.read_display_tasks(Task_Adapter.this.typeid, popupViewEdit, R.id.loadingPanelEdit);
+        }
+
+        public /* synthetic */ void lambda$onLongClick$30$Task_Adapter$MyOnLongClickListener(View popupViewInfo, PopupWindow popupWindowInfo, View v14) {
+            popupViewInfo.findViewById(R.id.loadingPanelDelete).setVisibility(0);
+            Task_Adapter.this.mMethodTransfer.delete_task(Task_Adapter.this.typeid, this.mID, new Task_Interface.VolleyCallBack(popupWindowInfo, popupViewInfo) {
+                public final /* synthetic */ PopupWindow f$1;
+                public final /* synthetic */ View f$2;
+
+                {
+                    this.f$1 = r2;
+                    this.f$2 = r3;
+                }
+
+                public final void onSuccess() {
+                    MyOnLongClickListener.this.lambda$null$29$Task_Adapter$MyOnLongClickListener(this.f$1, this.f$2);
+                }
+            });
+        }
+
+        public /* synthetic */ void lambda$null$29$Task_Adapter$MyOnLongClickListener(PopupWindow popupWindowInfo, View popupViewInfo) {
+            popupWindowInfo.dismiss();
+            Task_Adapter.this.mMethodTransfer.read_display_tasks(Task_Adapter.this.typeid, popupViewInfo, R.id.loadingPanelDelete);
+        }
+    }
