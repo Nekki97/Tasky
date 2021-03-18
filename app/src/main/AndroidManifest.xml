@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -12,14 +13,14 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Tasky.NoActionBar" >
+            android:theme="@style/Theme.Tasky.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.tasky.Task_Interface"/>
+        <activity android:name="com.example.tasky.Task_Interface" android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
     </application>
 
 </manifest>

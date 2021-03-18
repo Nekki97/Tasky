@@ -3,8 +3,8 @@
     android:id="@+id/popup_add_new"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/popup_back"
     android:orientation="vertical"
+    android:background="@drawable/popup_back"
     android:padding="10dp">
     <TextView
         android:id="@+id/name"
@@ -27,8 +27,9 @@
         android:layout_marginEnd="10dp"
         android:autofillHints="Insert name here"
         android:hint="@string/insert_name_here"
-        android:inputType="text"
-        android:textSize="15sp" />
+        android:imeOptions="actionDone"
+        android:textSize="15sp"
+        android:inputType="textPersonName" />
     <TextView
         android:id="@+id/harddl"
         android:layout_width="wrap_content"
@@ -50,10 +51,11 @@
         android:layout_marginStart="170dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
+        android:imeOptions="actionDone"
         android:autofillHints="no"
         android:hint="@string/insert_hard_dl_here_in_days"
-        android:inputType="text"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:inputType="numberDecimal" />
 
     <DatePicker
         android:id="@+id/start_date_picker"
@@ -69,6 +71,7 @@
         android:layout_below="@+id/start_date_picker"
         android:text="@string/ok"
         android:visibility="gone" />
+
     <TextView
         android:id="@+id/start_date"
         android:layout_width="wrap_content"
@@ -103,7 +106,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/cancel" />
     <Button
-        android:id="@+id/next_button"
+        android:id="@+id/done_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/start_date_button"

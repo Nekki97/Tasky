@@ -8,8 +8,11 @@ import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -31,9 +34,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class Task_Interface extends AppCompatActivity implements MethodTransfer {
-    FloatingActionButton fab;
-    int typeid = 1;
     static ArrayList<Object> tasks = new ArrayList<>();
 
     public String getString(String unfilteredStr, int position) {
@@ -60,7 +62,7 @@ public class Task_Interface extends AppCompatActivity implements MethodTransfer 
     public void delete_task(DB_Adapter helper, PopupWindow PW, String id, View popupViewInfo) {
         helper.delete(id);
         PW.dismiss();
-        read_display_tasks(helper, typeid, popupViewInfo, R.id.loadingPanelDelete);
+        read_display_tasks(helper, popupViewInfo, R.id.loadingPanelDelete);
     }
 
     public int getOccurence(String stringToTest, String letterToCount) {
@@ -76,20 +78,18 @@ public class Task_Interface extends AppCompatActivity implements MethodTransfer 
         throw new AssertionError("Assertion failed 2");
     }
 
-    public void read_display_tasks(DB_Adapter helper, int typeid2, View view, int loading_id) {
+    public void read_display_tasks(DB_Adapter helper, View view, int loading_id) {
         String data = helper.getData();
         String[] lines = data.split(" \n");
 
         tasks = new ArrayList<>();
-        if (typeid2 == 1) {
-            for (String line : lines) {
-                String[] properties = line.split(" {3}");
-                tasks.add(new TaskClass(properties[0], properties[1], properties[2], properties[3]));
-            }
+        for (String line : lines) {
+            String[] properties = line.split(" {3}");
+            tasks.add(new TaskClass(properties[0], properties[1], properties[2], properties[3]));
         }
 
         RecyclerView rvTasks = findViewById(R.id.rvTasks);
-        rvTasks.setAdapter(new Task_Adapter(tasks, this, this, typeid2));
+        rvTasks.setAdapter(new Task_Adapter(tasks, this, this));
         rvTasks.setLayoutManager(new LinearLayoutManager(this));
         rvTasks.addItemDecoration(new DividerItemDecoration(this, 1));
         view.findViewById(loading_id).setVisibility(View.GONE);
@@ -98,7 +98,6 @@ public class Task_Interface extends AppCompatActivity implements MethodTransfer 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        typeid = getIntent().getIntExtra("typeid", 0);
 
         findViewById(R.id.fabAddTask).setOnClickListener(this.add_listener);
 
@@ -106,62 +105,134 @@ public class Task_Interface extends AppCompatActivity implements MethodTransfer 
         // helper.insertData("Test", "5", "22/09/2021");
         // helper.insertData("Test2", "7", "22/10/2021");
 
-        read_display_tasks(helper, typeid, findViewById(R.id.activity_main), R.id.loadingPanel);
+        read_display_tasks(helper, findViewById(R.id.activity_main), R.id.loadingPanel);
     }
 
-    @SuppressLint("InflateParams")
+    @SuppressLint({"InflateParams", "ResourceType"})
     private final View.OnClickListener add_listener = v -> {
-        View popupViewAdd = null;
-        if (typeid == 1) {
-            popupViewAdd = getLayoutInflater().inflate(R.layout.popup_add_new, null);
-        }
+        FloatingActionButton fab = findViewById(R.id.fabAddTask);
+        fab.setVisibility(View.GONE);
+
+        View popupViewAdd = ((LayoutInflater) getLayoutInflater()).inflate(R.layout.popup_add_new, null);
+
         PopupWindow popupWindowAdd = new PopupWindow(popupViewAdd, -1, -2);
-        popupWindowAdd.showAtLocation(v, 48, 10, 10);
-        findViewById(R.id.fabAddTask).setVisibility(View.GONE);
-        popupWindowAdd.setFocusable(true);
+        popupWindowAdd.showAtLocation(popupViewAdd, 48, 10, 10);
+        popupWindowAdd.setFocusable(false);
         popupWindowAdd.setOutsideTouchable(false);
 
-        assert popupViewAdd != null;
+        EditText name_text = popupViewAdd.findViewById(R.id.task_name_new);
+        EditText harddl_text = popupViewAdd.findViewById(R.id.task_harddl_new);
+
+        /*
+        name_text.setShowSoftInputOnFocus(true);
+        harddl_text.setShowSoftInputOnFocus(true);
+
+        name_text.clearFocus();
+        harddl_text.clearFocus();
+
+        showSoftKeyboard(name_text);
+        showSoftKeyboard(harddl_text);
+         */
+
         Button Bstartdate = popupViewAdd.findViewById(R.id.start_date_button);
         Bstartdate.setOnClickListener(new DateOnClickListener(Bstartdate));
 
         View Bcancel = popupViewAdd.findViewById(R.id.cancel_button);
-        Bcancel.setOnClickListener(new CancelOnClickListener(popupWindowAdd));
+        Bcancel.setOnClickListener(new CancelOnClickListener(popupWindowAdd, fab));
+
+        View Bdone = popupViewAdd.findViewById(R.id.done_button);
+        Bdone.setOnClickListener(new DoneOnClickListener(popupWindowAdd, fab));
     };
 
     public class DateOnClickListener implements View.OnClickListener {
         Button mButton;
         public DateOnClickListener(Button button)  {this.mButton = button;}
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onClick(View v) {
-            setContentView(R.layout.popup_add_new);
+            InputMethodManager imm =(InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
 
-            DatePicker date_picker = findViewById(R.id.start_date_picker);
-            date_picker.setVisibility(View.VISIBLE);
+            @SuppressLint("InflateParams")
+            View popupViewDate = ((LayoutInflater) getLayoutInflater()).inflate(R.layout.date_picker, null);
 
-            Button BdateSet = findViewById(R.id.start_date_set);
-            BdateSet.setVisibility(View.VISIBLE);
+            PopupWindow popupWindowDate = new PopupWindow(popupViewDate, -1, -2);
+            popupWindowDate.showAtLocation(popupViewDate, 48, 10, 10);
+            popupWindowDate.setFocusable(false);
+            popupWindowDate.setOutsideTouchable(false);
+
+            DatePicker date_picker = popupViewDate.findViewById(R.id.start_date_picker);
+            Button BdateSet = popupViewDate.findViewById(R.id.start_date_set);
+
+            String date_on_button = (String) mButton.getText();
+            if (!date_on_button.equals("")) {
+                date_picker.updateDate(Integer.parseInt(date_on_button.substring(6)),
+                                Integer.parseInt(date_on_button.substring(3,5))-1,
+                                       Integer.parseInt(date_on_button.substring(0,2)));
+            }
 
             BdateSet.setOnClickListener(view -> {
-                mButton.setHint(date_picker.getDayOfMonth()+"/"+date_picker.getMonth()+"/"+date_picker.getYear());
+
+                String month = ""+(date_picker.getMonth()+1);
+                String day = ""+(date_picker.getDayOfMonth());
+                if(date_picker.getMonth() < 10){ month = "0" + month; }
+                if(date_picker.getDayOfMonth() < 10){day  = "0" + day ; }
+
+                StringBuilder text = new StringBuilder(day);
+                text.append("/").append(month).append("/").append(date_picker.getYear());
+                mButton.setText(text);
 
                 date_picker.setVisibility(View.GONE);
                 BdateSet.setVisibility(View.GONE);
+
+                popupWindowDate.dismiss();
             });
         }
     }
 
-    public class CancelOnClickListener implements View.OnClickListener {
+    public static class CancelOnClickListener implements View.OnClickListener {
         PopupWindow mPW;
-        public CancelOnClickListener(PopupWindow pw)  {this.mPW = pw;}
+        View mFab;
+        public CancelOnClickListener(PopupWindow pw, View fab)  {this.mPW = pw; this.mFab=fab;}
         @Override
         public void onClick(View v) {
-            setContentView(R.layout.activity_main);
-            findViewById(R.id.fabAddTask).setVisibility(View.VISIBLE);
+            mFab.setVisibility(View.VISIBLE);
             mPW.dismiss();
-            findViewById(R.id.fabAddTask).setOnClickListener(Task_Interface.this.add_listener);
-            read_display_tasks(new DB_Adapter(Task_Interface.this), typeid, findViewById(R.id.activity_main), R.id.loadingPanel);
         }
+    }
+
+    public class DoneOnClickListener implements View.OnClickListener {
+        PopupWindow mPW;
+        View mFab;
+        DB_Adapter helper = new DB_Adapter(Task_Interface.this);
+        public DoneOnClickListener(PopupWindow pw, View fab)  {this.mPW = pw; this.mFab=fab;}
+        @Override
+        public void onClick(View v) {
+            View popupView = mPW.getContentView();
+
+            String name = ((EditText) popupView.findViewById(R.id.task_name_new)).getText().toString();
+            String harddl = ((EditText) popupView.findViewById(R.id.task_harddl_new)).getText().toString();
+            String date = ((Button) popupView.findViewById(R.id.start_date_button)).getText().toString();
+
+            helper.insertData(name, harddl, date);
+
+            mFab.setVisibility(View.VISIBLE);
+            mPW.dismiss();
+            read_display_tasks(helper, findViewById(R.id.activity_main), R.id.loadingPanel);
+        }
+    }
+
+    public void showSoftKeyboard(View view) {
+        if(view.requestFocus()){
+            InputMethodManager imm =(InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        }
+    }
+
+    public static void hideSoftKeyboard(final View view) {
+        InputMethodManager imm = (InputMethodManager) view.getContext()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

@@ -11,7 +11,6 @@ public class SecondFragment extends Fragment {
         super.onCreate(savedInstanceState);
         //setContentView((int) R.layout.activity_main);
         Intent myIntent = new Intent(getContext(), Task_Interface.class);
-        myIntent.putExtra("typeid", 1);
         SecondFragment.this.startActivityForResult(myIntent, 0);
     }
 }

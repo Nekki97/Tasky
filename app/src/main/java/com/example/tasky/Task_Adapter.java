@@ -30,11 +30,10 @@ public class Task_Adapter extends RecyclerView.Adapter<Task_Adapter.ViewHolder> 
         }
     }
 
-    public Task_Adapter(List<Object> tasks, Context context, MethodTransfer methodTransfer, int otypeid) {
+    public Task_Adapter(List<Object> tasks, Context context, MethodTransfer methodTransfer) {
         mTasks = tasks;
         mContext = context;
         mMethodTransfer = methodTransfer;
-        typeid = otypeid;
     }
 
     @NonNull
@@ -50,7 +49,7 @@ public class Task_Adapter extends RecyclerView.Adapter<Task_Adapter.ViewHolder> 
         if (typeid == 1) {
             textView.setText(((TaskClass) task).getName());
         }
-        holder.itemView.setOnLongClickListener(new MyOnLongClickListener(typeid, task));
+        holder.itemView.setOnLongClickListener(new MyOnLongClickListener(task));
     }
 
     public int getItemCount() {
@@ -69,14 +68,12 @@ public class Task_Adapter extends RecyclerView.Adapter<Task_Adapter.ViewHolder> 
         View popupViewInfo = inflater.inflate(R.layout.popup_info_new, null);
         DB_Adapter helper = new DB_Adapter(mContext);
 
-        public MyOnLongClickListener(int typeid, Object task) {
-            if (typeid == 1) {
-                TaskClass task_1 = (TaskClass) task;
-                this.mID = task_1.getID();
-                this.mName = task_1.getName();
-                this.mStartDate = task_1.getStartDate();
-                this.mHardDL = task_1.getHardDL();
-            }
+        public MyOnLongClickListener(Object task) {
+            TaskClass task_1 = (TaskClass) task;
+            this.mID = task_1.getID();
+            this.mName = task_1.getName();
+            this.mStartDate = task_1.getStartDate();
+            this.mHardDL = task_1.getHardDL();
         }
 
         public boolean onLongClick(View v) {
@@ -102,7 +99,7 @@ public class Task_Adapter extends RecyclerView.Adapter<Task_Adapter.ViewHolder> 
             @Override
             public void onClick(View v) {
                 mPW.dismiss();
-                mMethodTransfer.read_display_tasks(helper, typeid, popupViewInfo, R.id.loadingPanelDelete);
+                mMethodTransfer.read_display_tasks(helper, popupViewInfo, R.id.loadingPanelDelete);
             }
         }
 

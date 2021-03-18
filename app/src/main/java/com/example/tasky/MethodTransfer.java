@@ -10,5 +10,5 @@ public interface MethodTransfer {
 
     String getString(String str, int i);
 
-    void read_display_tasks(DB_Adapter helper, int i, View view, int i2);
+    void read_display_tasks(DB_Adapter helper, View view, int i);
 }
